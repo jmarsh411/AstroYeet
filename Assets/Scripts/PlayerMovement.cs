@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float speed = 1.0f;
+    public float speed = 5.0f;
     Vector3 move;
 
     // Use this for initialization
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        move = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
 		transform.position += move * speed * Time.deltaTime;
     }
 }
