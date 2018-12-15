@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212026149390146330}
   - component: {fileID: 114586166928864946}
   m_Layer: 0
-  m_Name: AsterPrefab
+  m_Name: S_Asteroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
