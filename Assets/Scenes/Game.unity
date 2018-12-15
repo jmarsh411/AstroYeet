@@ -329,7 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AsterPrefab: {fileID: 1038001223607396, guid: d5bf0bff913802248bf6bcb4e941506f,
     type: 2}
-  spawnPerSec: 1
+  spawnPerSec: 4
   spawnPadding: 1.5
   spawnZone: {x: 10, y: 6, z: 0}
 --- !u!1 &2141834055
