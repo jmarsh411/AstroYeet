@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 519767418}
   - component: {fileID: 519767417}
+  - component: {fileID: 519767419}
   m_Layer: 0
   m_Name: Enemy Ship UI (1)
   m_TagString: Untagged
@@ -188,6 +189,18 @@ Transform:
   m_Father: {fileID: 2109416908}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519767419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 519767416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403e763801314f7469fa190618e93e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.001
 --- !u!1 &732051544
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1409192363}
   - component: {fileID: 1409192362}
+  - component: {fileID: 1409192364}
   m_Layer: 0
   m_Name: Player Ship UI
   m_TagString: Untagged
@@ -482,6 +496,18 @@ Transform:
   m_Father: {fileID: 2109416908}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1409192364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409192361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403e763801314f7469fa190618e93e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.0008
 --- !u!1 &2026552850
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026552852}
   - component: {fileID: 2026552851}
+  - component: {fileID: 2026552853}
   m_Layer: 0
   m_Name: Enemy Ship UI (2)
   m_TagString: Untagged
@@ -557,6 +584,18 @@ Transform:
   m_Father: {fileID: 2109416908}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2026552853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2026552850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 403e763801314f7469fa190618e93e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.001
 --- !u!1 &2109416906
 GameObject:
   m_ObjectHideFlags: 0
