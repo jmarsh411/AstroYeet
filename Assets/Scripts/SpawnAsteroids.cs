@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnAsteroids : MonoBehaviour {
+    private float uiOffset = -0.6f;
+
     [Header("Set in Inspector")]
     public GameObject AsterPrefab;
     public float spawnPerSec = 1f;
@@ -16,7 +18,7 @@ public class SpawnAsteroids : MonoBehaviour {
 
     void SpawnAster()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x), spawnZone.y, spawnZone.z);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
         Instantiate(AsterPrefab, spawnPos, Quaternion.identity);
         Invoke("SpawnAster", 1f / spawnPerSec);
     }
