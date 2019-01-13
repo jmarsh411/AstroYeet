@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnAsteroids : MonoBehaviour {
+public class SpawnLasers : MonoBehaviour {
     private float uiOffset = -0.6f;
 
     [Header("Set in Inspector")]
@@ -13,13 +13,13 @@ public class SpawnAsteroids : MonoBehaviour {
 
     void Awake()
     {
-        Invoke("SpawnAster", 1f / spawnPerSec);
+        Invoke("SpawnLaser", 1f / spawnPerSec);
     }
 
-    void SpawnAster()
+    void SpawnLaser()
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
         Instantiate(AsterPrefab, spawnPos, Quaternion.identity);
-        Invoke("SpawnAster", 1f / spawnPerSec);
+        Invoke("SpawnLaser", 1f / spawnPerSec);
     }
 }
