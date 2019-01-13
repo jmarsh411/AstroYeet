@@ -539,7 +539,7 @@ MonoBehaviour:
     type: 2}
   spawnPerSec: 1
   spawnPadding: 1.5
-  spawnZone: {x: 4, y: -12, z: 0}
+  spawnZone: {x: 4.3, y: -12, z: 0}
 --- !u!4 &1593996244
 Transform:
   m_ObjectHideFlags: 0

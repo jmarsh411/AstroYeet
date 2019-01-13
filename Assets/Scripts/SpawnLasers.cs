@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnLasers : MonoBehaviour {
+    private float uiOffset = -0.6f;
 
     [Header("Set in Inspector")]
     public GameObject AsterPrefab;
@@ -17,7 +18,7 @@ public class SpawnLasers : MonoBehaviour {
 
     void SpawnLaser()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x), spawnZone.y, spawnZone.z);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
         Instantiate(AsterPrefab, spawnPos, Quaternion.identity);
         Invoke("SpawnLaser", 1f / spawnPerSec);
     }
