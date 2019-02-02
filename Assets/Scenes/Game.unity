@@ -893,7 +893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c9a66c32d04094e992421d0899b4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AsterPrefab: {fileID: 1102822701399104, guid: 77f1c4fe9d64d1240a7528b20e791f73,
+  LaserPrefab: {fileID: 1102822701399104, guid: 77f1c4fe9d64d1240a7528b20e791f73,
     type: 3}
   spawnPerSec: 0.166
   spawnPadding: 1.5
