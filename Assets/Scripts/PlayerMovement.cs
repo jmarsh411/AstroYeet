@@ -14,6 +14,13 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
+        {
+            speed = 30.0f;
+        }
+        else
+            speed = 5.0f;
+
         move = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
 		transform.position += move * speed * Time.deltaTime;
     }
