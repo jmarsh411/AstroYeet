@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    readonly float defaultSpeed = 5f;
-    public float speed = 5.0f;
-    public float horizAxis;
-    Vector3 move;
+    const float defaultSpeed = 5f;
+    private float boostLen = 0.1f;
+    private float boostSpeedMult = 6;
+    private float speed = defaultSpeed;
+    private float horizAxis;
+    private Vector3 move;
     private bool boosting;
 
     // Use this for initialization
@@ -20,6 +22,9 @@ public class PlayerMovement : MonoBehaviour {
         if (!IsBoosting())
         {
             move = new Vector3(horizAxis, 0, 0);
+            // normalize movement vector so joysticks don't have an advantage
+            // in precision
+            move.Normalize();
         }
 
         transform.position += move * speed * Time.deltaTime;
@@ -27,9 +32,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Boost()
     {
-        speed = defaultSpeed * 6;
+        speed = defaultSpeed * boostSpeedMult;
         boosting = true;
-        Invoke("StopBoost", 0.1f);
+        Invoke("StopBoost", boostLen);
     }
 
     public void StopBoost()
@@ -41,5 +46,10 @@ public class PlayerMovement : MonoBehaviour {
     public bool IsBoosting()
     {
         return boosting;
+    }
+
+    public void SetHoriz(float axis)
+    {
+        horizAxis = axis;
     }
 }
