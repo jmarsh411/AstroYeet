@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    bool isBoosting;
     bool canBoost;
     public float boostTimeout;
     public GameObject playerShip;
@@ -15,7 +14,6 @@ public class InputManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isBoosting = false;
         canBoost = true;
         movement = playerShip.GetComponent<PlayerMovement>();
     }
@@ -23,34 +21,28 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // If boost button pressed and not already boosting and I'm allowed to boost
-        // then boost
+        // send the horizontal axis to player for movement purposes
         movement.horizAxis = Input.GetAxis("Horizontal");
 
+        // if boost button is pressed, boost if allowed and not already boosting
         if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
         {
-            if (!isBoosting && canBoost)
+            if (canBoost && !movement.IsBoosting())
             {
                 Boost();
             }
         }
     }
-
-
+    
     void Boost()
     {
-        Debug.Log("Boosting");
         movement.Boost();
-        isBoosting = true;
         canBoost = false;
-        Invoke("StopBoost", boostTimeout);
+        Invoke("ResetBoost", boostTimeout);
     }
 
-    void StopBoost()
+    void ResetBoost()
     {
-        Debug.Log("Stopped Boosting");
-        isBoosting = false;
         canBoost = true;
     }
 }
