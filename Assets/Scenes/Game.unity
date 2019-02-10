@@ -1321,8 +1321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ae98f24c6fb184987716796d974ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  horizAxis: 0
 --- !u!114 &2141834059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1335,7 +1333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16964faff826b49459ab911a1a330021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostTimeout: 1.5
   playerShip: {fileID: 2141834055}
 --- !u!1 &2144928169
 GameObject:
