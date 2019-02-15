@@ -14,14 +14,26 @@ public class SpawnLasers : MonoBehaviour {
 
     void Awake()
     {
-        Invoke("SpawnLaser", 1f / spawnPerSec);
+        Invoke("SpawnWarning", 1f / spawnPerSec);
     }
 
-    void SpawnLaser()
+    void SpawnLaserOLD()
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
         //Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
         Instantiate(LaserPrefab, spawnPos, Quaternion.identity);
-        Invoke("SpawnLaser", 1f / spawnPerSec);
+        Invoke("SpawnLaserOLD", 1f / spawnPerSec);
+    }
+
+    void SpawnWarning()
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
+        Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
+        Invoke("SpawnWarning", 1f / spawnPerSec);
+    }
+
+    public void SpawnLaser(Vector3 position)
+    {
+        Instantiate(LaserPrefab, position, Quaternion.identity);
     }
 }

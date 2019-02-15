@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class OnDestroyTest : MonoBehaviour
 {
-    //public Score score;
-    public float enemyDist;
-    public float laserSpeed;
-    public GameObject LaserPrefab;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +16,8 @@ public class GameManager : MonoBehaviour
         
     }
 
-
+    private void OnDestroy()
+    {
+        Debug.Log("Game obj destroyed");
+    }
 }

@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class InstantiateTest : MonoBehaviour
 {
-    //public Score score;
-    public float enemyDist;
-    public float laserSpeed;
-    public GameObject LaserPrefab;
-
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Object ACTUALLY Instantiated");
     }
 
     // Update is called once per frame
@@ -20,6 +15,4 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
-
 }
