@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestFade : MonoBehaviour
+public class FadeSprite : MonoBehaviour
 {
     public float fadeTime;
     public float targetAlpha;
@@ -10,12 +10,16 @@ public class TestFade : MonoBehaviour
     private Color color;
     private SpriteRenderer sprite;
     private float alpha;
+    private bool faded;
 
     // Start is called before the first frame update
     void Start()
     {
+        faded = false;
+        // hardcoded for now
+        SetFadeParams(3f, 1f);
         sprite = GetComponent<SpriteRenderer>();
-        StartCoroutine(FadeTo(1f, 3f));  // hardcoded for now
+        StartCoroutine(FadeTo(targetAlpha, fadeTime));
     }
 
     // Update is called once per frame
@@ -24,6 +28,7 @@ public class TestFade : MonoBehaviour
         
     }
 
+    // https://answers.unity.com/questions/654836/unity2d-sprite-fade-in-and-out.html?childToView=654842#
     IEnumerator FadeTo(float aValue, float aTime)
     {
         alpha = sprite.color.a;
@@ -33,5 +38,17 @@ public class TestFade : MonoBehaviour
             sprite.color = new Color(color.r, color.g, color.b, Mathf.Lerp(alpha, aValue, t));
             yield return null;
         }
+        faded = true;
+    }
+
+    void SetFadeParams(float fade_time, float target_alpha)
+    {
+        fadeTime = fade_time;
+        targetAlpha = target_alpha;
+    }
+
+    public bool HasFaded()
+    {
+        return faded;
     }
 }
