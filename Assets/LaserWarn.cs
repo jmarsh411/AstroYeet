@@ -17,12 +17,19 @@ public class LaserWarn : MonoBehaviour
     void Start()
     {
         lasers = Camera.main.GetComponent<SpawnLasers>();
+        StartCoroutine(DestroyAfter(3f));
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    IEnumerator DestroyAfter(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        Destroy(transform.parent.gameObject);
     }
 
     void OnDestroy()
