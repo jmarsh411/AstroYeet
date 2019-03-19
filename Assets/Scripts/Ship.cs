@@ -15,6 +15,9 @@ public class Ship : MonoBehaviour
     private Vector3 move;
     private bool boosting = false;
 
+
+    // speed += thrust - drag
+
     void Awake()
     {
         vertSpeed = defVertSpeed;
