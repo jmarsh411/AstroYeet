@@ -12,6 +12,7 @@ public class Ship : MonoBehaviour
     private float horizSpeed = defHorizSpeed;
     public float vertSpeed;
     private float horizAxis;
+    private float vertAxis;
     private Vector3 move;
     private bool boosting = false;
 
@@ -21,6 +22,8 @@ public class Ship : MonoBehaviour
     void Awake()
     {
         vertSpeed = defVertSpeed;
+        horizAxis = 0f;
+        vertAxis = 0f;
     }
 
     // Use this for initialization
@@ -45,13 +48,36 @@ public class Ship : MonoBehaviour
 
     public void Boost()
     {
-        if (horizAxis == 0f)
-            vertSpeed += boostVertStr;
-
-        horizSpeed = defHorizSpeed * boostHorizSpeedMult;
+        // Horizontal boost takes priority if axis are equal
+        if (horizAxis != 0 && Mathf.Abs(horizAxis) >= Mathf.Abs(vertAxis))
+        {
+            BoostHoriz();
+        }
+        else
+        {
+            if (vertAxis < 0)
+                BoostBack();
+            else
+                BoostForw();
+        }
         
         boosting = true;
         Invoke("StopBoost", boostLen);
+    }
+
+    private void BoostForw()
+    {
+        vertSpeed += boostVertStr;
+    }
+
+    private void BoostBack()
+    {
+        vertSpeed -= boostVertStr;
+    }
+
+    private void BoostHoriz()
+    {
+        horizSpeed = defHorizSpeed * boostHorizSpeedMult;
     }
 
     public void StopBoost()
@@ -68,5 +94,10 @@ public class Ship : MonoBehaviour
     public void SetHoriz(float axis)
     {
         horizAxis = axis;
+    }
+
+    public void SetVert(float axis)
+    {
+        vertAxis = axis;
     }
 }
