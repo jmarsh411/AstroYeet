@@ -9,13 +9,16 @@ public class Ship : MonoBehaviour
     private float boostLen = 0.1f;
     private float boostHorizSpeedMult = 6f;
     private float boostVertStr = 0.05f;
+    private float baseThrust = 0.3f;
+    private float addThrust = 0f;
+    private float mass = 1f;
+    private float drag = 0.15f;
     private float horizSpeed = defHorizSpeed;
     public float vertSpeed;
     private float horizAxis;
     private float vertAxis;
     private Vector3 move;
     private bool boosting = false;
-
 
     // speed += thrust - drag
 
