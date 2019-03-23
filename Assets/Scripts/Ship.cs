@@ -88,6 +88,7 @@ public class Ship : MonoBehaviour
     {
         while (true)
         {
+            // https://www.grc.nasa.gov/www/k-12/airplane/exthrst.html
             drag = speed * speed;
             excessThrust = baseThrust + addThrust - drag;
             accel = excessThrust / mass;
