@@ -6,13 +6,14 @@ public class Ship : MonoBehaviour
 {
     const float defHorizSpeed = 5f;
     private float defVertSpeed = 0.15f;
-    private float boostLen = 0.1f;
+    private float boostLen = 0.07f;
     private float boostHorizSpeedMult = 6f;
-    private float boostVertStr = 0.05f;
+    private float boostVertStr = 0.8f;
+    public float dragMult;
     public float baseThrust;
     public float addThrust;
-    private float mass = 1f;
-    private float drag = 0.15f;
+    public float mass;
+    private float drag;
     private float horizSpeed = defHorizSpeed;
     public float speed;
     public float accel;
@@ -33,7 +34,7 @@ public class Ship : MonoBehaviour
         excessThrust = 0;
         drag = speed * speed;
         addThrust = 0f;
-        StartCoroutine(UpdPhysics());
+        //StartCoroutine(UpdPhysics());
     }
 
     // Use this for initialization
@@ -50,7 +51,7 @@ public class Ship : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        UpdPhysics();
 
         // can only change direction while not boosting
         if (!IsBoosting())
@@ -61,6 +62,7 @@ public class Ship : MonoBehaviour
             move.Normalize();
         }
 
+        speed += accel * Time.deltaTime;
         transform.position += move * horizSpeed * Time.deltaTime;
 
     }
@@ -84,18 +86,13 @@ public class Ship : MonoBehaviour
         Invoke("StopBoost", boostLen);
     }
 
-    IEnumerator UpdPhysics()
+    void UpdPhysics()
     {
-        while (true)
-        {
             // https://www.grc.nasa.gov/www/k-12/airplane/exthrst.html
-            drag = speed * speed;
+            drag = dragMult * speed * speed;
             excessThrust = baseThrust + addThrust - drag;
             accel = excessThrust / mass;
-            speed += accel * Time.deltaTime;
-            yield return new WaitForSeconds(0.2f);
-        }
-        
+
     }
 
     IEnumerator SetThrust(float thrust, float duration)
@@ -109,14 +106,14 @@ public class Ship : MonoBehaviour
     {
         //speed += boostVertStr;
         //addThrust += 0.2f;
-        StartCoroutine(SetThrust(0.3f, 2f));
+        StartCoroutine(SetThrust(boostVertStr, boostLen));
     }
 
     private void BoostBack()
     {
         //addThrust -= 0.2f;
         //speed -= boostVertStr;
-        StartCoroutine(SetThrust(-0.3f, 2f));
+        StartCoroutine(SetThrust(-boostVertStr * 0.5f, boostLen));
 
     }
 
