@@ -22,6 +22,8 @@ public class Ship : MonoBehaviour
     private float vertAxis;
     private Vector3 move;
     private bool boosting = false;
+    private float baseSpeed = 0.2f;
+    public float speedMult;
 
     // speed += thrust - drag
 
@@ -34,6 +36,7 @@ public class Ship : MonoBehaviour
         excessThrust = 0;
         drag = speed * speed;
         addThrust = 0f;
+        speedMult = 1f;
         //StartCoroutine(UpdPhysics());
     }
 
@@ -63,6 +66,7 @@ public class Ship : MonoBehaviour
         }
 
         speed += accel * Time.deltaTime;
+        speedMult = speed / baseSpeed;
         transform.position += move * horizSpeed * Time.deltaTime;
 
     }
@@ -113,7 +117,7 @@ public class Ship : MonoBehaviour
     {
         //addThrust -= 0.2f;
         //speed -= boostVertStr;
-        StartCoroutine(SetThrust(-boostVertStr * 0.5f, boostLen));
+        StartCoroutine(SetThrust(-boostVertStr * 0.2f, boostLen));
 
     }
 
