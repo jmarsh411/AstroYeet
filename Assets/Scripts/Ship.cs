@@ -8,7 +8,7 @@ public class Ship : MonoBehaviour
     private float defVertSpeed = 0.15f;
     private float boostLen = 0.07f;
     private float boostHorizSpeedMult = 6f;
-    private float boostVertStr = 0.8f;
+    private float boostVertStr;
     public float dragMult;
     public float baseThrust;
     public float addThrust;
@@ -37,6 +37,7 @@ public class Ship : MonoBehaviour
         drag = speed * speed;
         addThrust = 0f;
         speedMult = 1f;
+        boostVertStr = baseThrust * 40;
         //StartCoroutine(UpdPhysics());
     }
 
@@ -110,7 +111,7 @@ public class Ship : MonoBehaviour
     {
         //speed += boostVertStr;
         //addThrust += 0.2f;
-        StartCoroutine(SetThrust(boostVertStr, boostLen));
+        StartCoroutine(SetThrust(boostVertStr, boostLen * 2));
     }
 
     private void BoostBack()
