@@ -55,7 +55,9 @@ public class Ship : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdPhysics();
+        //UpdPhysics();
+        //speed += accel * Time.deltaTime;
+        //speedMult = speed / baseSpeed;
 
         // can only change direction while not boosting
         if (!IsBoosting())
@@ -66,8 +68,6 @@ public class Ship : MonoBehaviour
             move.Normalize();
         }
 
-        speed += accel * Time.deltaTime;
-        speedMult = speed / baseSpeed;
         transform.position += move * horizSpeed * Time.deltaTime;
 
     }
