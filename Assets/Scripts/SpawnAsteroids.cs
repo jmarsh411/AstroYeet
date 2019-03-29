@@ -6,6 +6,7 @@ public class SpawnAsteroids : MonoBehaviour {
     private float uiOffset = -0.6f;
 
     [Header("Set in Inspector")]
+    public GameObject player;
     public GameObject AsterPrefab;
     public float spawnPerSec = 1f;
     public float spawnPadding = 1.5f;
@@ -20,7 +21,7 @@ public class SpawnAsteroids : MonoBehaviour {
 
     void SpawnAster()
     {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y + player.transform.position.y, spawnZone.z);
         Instantiate(AsterPrefab, spawnPos, Quaternion.identity);
         Invoke("SpawnAster", 1f / spawnPerSec  / ship.speedMult * Random.Range(0.4f, 1.6f));
     }
