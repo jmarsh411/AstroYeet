@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: 2c943ed1da3e4674c999c15f56aaf36a
+guid: 52168da9b0f9cd547a557db7ad597b11
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: laser_warn_0
-    21300002: laser_warn_1
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -42,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,51 +82,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: laser_warn_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 65
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 842707e167df30b418187e5f61cc7006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: laser_warn_1
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 0
-        width: 65
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ade3c5b0d7ea854ea4f7ac4b2133d90
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1d7199fab7048d6448c059985c2d95b9
+    spriteID: 01ac062b7f8cd9041878f5d531ab9223
     vertices: []
     indices: 
     edges: []
