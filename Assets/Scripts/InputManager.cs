@@ -5,34 +5,43 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public GameObject playerShip;
-    private PlayerMovement movement;
+    private Ship ship;
     private Vector3 move;
     private bool canBoost = true;
     private float boostTimeout = 1.5f;
     // deadzone to pad against broken/miscalibrated controllers
     private float horizDeadzone = 0.1f;
+    private float vertDeadzone = 0.1f;
     private float horizAxis = 0f;
+    private float vertAxis = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        movement = playerShip.GetComponent<PlayerMovement>();
+        ship = playerShip.GetComponent<Ship>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // send the horizontal axis to player for movement purposes
+        // send the horizontal axis to player ship for movement purposes
         horizAxis = Input.GetAxis("Horizontal");
-        if (horizAxis > horizDeadzone || horizAxis < -horizDeadzone)
-            movement.SetHoriz(horizAxis);
+        if (Mathf.Abs(horizAxis) > horizDeadzone)
+            ship.SetHoriz(horizAxis);
         else
-            movement.SetHoriz(0);
+            ship.SetHoriz(0);
+
+        // send the vertical axis to player ship
+        vertAxis = Input.GetAxis("Vertical");
+        if (Mathf.Abs(vertAxis) > vertDeadzone)
+            ship.SetVert(vertAxis);
+        else
+            ship.SetVert(0);
 
         // if boost button is pressed, boost if allowed and not already boosting
         if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
         {
-            if (canBoost && !movement.IsBoosting())
+            if (canBoost && !ship.IsBoosting())
             {
                 Boost();
             }
@@ -41,7 +50,7 @@ public class InputManager : MonoBehaviour
 
     void Boost()
     {
-        movement.Boost();
+        ship.Boost();
         canBoost = false;
         Invoke("ResetBoost", boostTimeout);
     }

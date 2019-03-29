@@ -10,9 +10,11 @@ public class SpawnAsteroids : MonoBehaviour {
     public float spawnPerSec = 1f;
     public float spawnPadding = 1.5f;
     public Vector3 spawnZone;
+    private Ship ship;
 
     void Awake()
     {
+        ship = GameObject.FindWithTag("PlayerShip").GetComponent<Ship>();
         Invoke("SpawnAster", 1f / spawnPerSec);
     }
 
@@ -20,6 +22,6 @@ public class SpawnAsteroids : MonoBehaviour {
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
         Instantiate(AsterPrefab, spawnPos, Quaternion.identity);
-        Invoke("SpawnAster", 1f / spawnPerSec);
+        Invoke("SpawnAster", 1f / spawnPerSec  / ship.speedMult * Random.Range(0.4f, 1.6f));
     }
 }
