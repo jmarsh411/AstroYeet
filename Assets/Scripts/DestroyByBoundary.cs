@@ -14,11 +14,6 @@ public class DestroyByBoundary : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Entered trigger");
-    }
-
     void OnTriggerExit2D(Collider2D other) {
         Destroy(other.gameObject);
     }
