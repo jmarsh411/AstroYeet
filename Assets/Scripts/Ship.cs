@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
+    private CircleCollider2D collider;
+    private GameManager game;
+    private Vector3 temp;
+    float tempx;
+    private float colliderPadding;
+    private float leftBound;
+    private float rightBound;
     const float defHorizSpeed = 5f;
     private float defVertSpeed = 0.15f;
     private float boostLen = 0.07f;
@@ -29,6 +36,13 @@ public class Ship : MonoBehaviour
 
     void Awake()
     {
+        game = Camera.main.GetComponent<GameManager>();
+        collider = GetComponent<CircleCollider2D>();
+    }
+
+    // Use this for initialization
+    void Start()
+    {
         speed = defVertSpeed;
         horizAxis = 0f;
         vertAxis = 0f;
@@ -38,12 +52,10 @@ public class Ship : MonoBehaviour
         addThrust = 0f;
         speedMult = 1f;
         boostVertStr = baseThrust * 40;
+        colliderPadding = collider.bounds.extents.x;
+        leftBound = game.playArea.min.x + colliderPadding;
+        rightBound = game.playArea.max.x - colliderPadding;
         //StartCoroutine(UpdPhysics());
-    }
-
-    // Use this for initialization
-    void Start()
-    {
     }
 
     // Update is called once per frame
@@ -68,8 +80,10 @@ public class Ship : MonoBehaviour
             move.Normalize();
         }
 
-        transform.position += move * horizSpeed * Time.deltaTime;
-
+        temp = transform.position + move * horizSpeed * Time.deltaTime;
+        // keep x within the game's playable boundaries
+        tempx = Mathf.Clamp(temp.x, leftBound, rightBound);
+        transform.position = new Vector3(tempx, temp.y, temp.z);
     }
 
     public void Boost()
