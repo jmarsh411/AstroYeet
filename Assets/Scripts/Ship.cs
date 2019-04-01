@@ -98,12 +98,23 @@ public class Ship : MonoBehaviour
         {
             Accel();
         }
+        
+        // if (Input.GetAxis("BrakeJoy") > 0 || Input.GetAxis("BrakeKey") > 0)
+        if (Input.GetAxis("BrakeKey") > 0)
+        {
+            Decel();
+        }
     }
 
     public void Accel()
     {
         rBody.AddForce(thrust * 3);
         //rBody.AddForce(thrust, ForceMode2D.Impulse);
+    }
+
+    public void Decel()
+    {
+        rBody.AddForce(-thrust);
     }
 
     //public void Boost()
