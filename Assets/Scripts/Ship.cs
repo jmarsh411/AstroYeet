@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
-    private CircleCollider2D collider;
     private GameManager game;
+    private CircleCollider2D collider;
+    private Rigidbody2D rBody;
+
+    private Vector2 thrust;
     private Vector3 temp;
     float tempx;
     private float colliderPadding;
@@ -38,11 +41,14 @@ public class Ship : MonoBehaviour
     {
         game = Camera.main.GetComponent<GameManager>();
         collider = GetComponent<CircleCollider2D>();
+        rBody = GetComponent<Rigidbody2D>();
     }
 
     // Use this for initialization
     void Start()
     {
+        //thrust = new Vector2(0, 20);
+        thrust = new Vector2(0, 20f);
         speed = defVertSpeed;
         horizAxis = 0f;
         vertAxis = 0f;
@@ -71,86 +77,100 @@ public class Ship : MonoBehaviour
         //speed += accel * Time.deltaTime;
         //speedMult = speed / baseSpeed;
 
-        // can only change direction while not boosting
-        if (!IsBoosting())
-        {
-            move = new Vector3(horizAxis, 0, 0);
-            // normalize movement vector so joysticks don't have an advantage
-            // in precision
-            move.Normalize();
-        }
+        //// can only change direction while not boosting
+        //if (!IsBoosting())
+        //{
+        //    move = new Vector3(horizAxis, 0, 0);
+        //    // normalize movement vector so joysticks don't have an advantage
+        //    // in precision
+        //    move.Normalize();
+        //}
 
+        move = new Vector3(horizAxis, 0, 0);
+        move.Normalize();
         temp = transform.position + move * horizSpeed * Time.deltaTime;
         // keep x within the game's playable boundaries
         tempx = Mathf.Clamp(temp.x, leftBound, rightBound);
+        rBody.AddForce(thrust);
         transform.position = new Vector3(tempx, temp.y, temp.z);
-    }
 
-    public void Boost()
-    {
-        // Horizontal boost takes priority if axis are equal
-        if (horizAxis != 0 && Mathf.Abs(horizAxis) >= Mathf.Abs(vertAxis))
+        if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
         {
-            BoostHoriz();
+            Accel();
         }
-        else
-        {
-            if (vertAxis < 0)
-                BoostBack();
-            else
-                BoostForw();
-        }
-        
-        boosting = true;
-        Invoke("StopBoost", boostLen);
     }
 
-    void UpdPhysics()
+    public void Accel()
     {
-            // https://www.grc.nasa.gov/www/k-12/airplane/exthrst.html
-            drag = dragMult * speed * speed;
-            excessThrust = baseThrust + addThrust - drag;
-            accel = excessThrust / mass;
-
+        rBody.AddForce(thrust * 3);
+        //rBody.AddForce(thrust, ForceMode2D.Impulse);
     }
 
-    IEnumerator SetThrust(float thrust, float duration)
-    {
-        addThrust = thrust;
-        yield return new WaitForSeconds(duration);
-        addThrust = 0;
-    }
+    //public void Boost()
+    //{
+    //    // Horizontal boost takes priority if axis are equal
+    //    if (horizAxis != 0 && Mathf.Abs(horizAxis) >= Mathf.Abs(vertAxis))
+    //    {
+    //        BoostHoriz();
+    //    }
+    //    else
+    //    {
+    //        if (vertAxis < 0)
+    //            BoostBack();
+    //        else
+    //            BoostForw();
+    //    }
 
-    private void BoostForw()
-    {
-        //speed += boostVertStr;
-        //addThrust += 0.2f;
-        StartCoroutine(SetThrust(boostVertStr, boostLen * 2));
-    }
+    //    boosting = true;
+    //    Invoke("StopBoost", boostLen);
+    //}
 
-    private void BoostBack()
-    {
-        //addThrust -= 0.2f;
-        //speed -= boostVertStr;
-        StartCoroutine(SetThrust(-boostVertStr * 0.2f, boostLen));
+    //void UpdPhysics()
+    //{
+    //        // https://www.grc.nasa.gov/www/k-12/airplane/exthrst.html
+    //        drag = dragMult * speed * speed;
+    //        excessThrust = baseThrust + addThrust - drag;
+    //        accel = excessThrust / mass;
 
-    }
+    //}
 
-    private void BoostHoriz()
-    {
-        horizSpeed = defHorizSpeed * boostHorizSpeedMult;
-    }
+    //IEnumerator SetThrust(float thrust, float duration)
+    //{
+    //    addThrust = thrust;
+    //    yield return new WaitForSeconds(duration);
+    //    addThrust = 0;
+    //}
 
-    public void StopBoost()
-    {
-        horizSpeed = defHorizSpeed;
-        boosting = false;
-    }
+    //private void BoostForw()
+    //{
+    //    //speed += boostVertStr;
+    //    //addThrust += 0.2f;
+    //    StartCoroutine(SetThrust(boostVertStr, boostLen * 2));
+    //}
 
-    public bool IsBoosting()
-    {
-        return boosting;
-    }
+    //private void BoostBack()
+    //{
+    //    //addThrust -= 0.2f;
+    //    //speed -= boostVertStr;
+    //    StartCoroutine(SetThrust(-boostVertStr * 0.2f, boostLen));
+
+    //}
+
+    //private void BoostHoriz()
+    //{
+    //    horizSpeed = defHorizSpeed * boostHorizSpeedMult;
+    //}
+
+    //public void StopBoost()
+    //{
+    //    horizSpeed = defHorizSpeed;
+    //    boosting = false;
+    //}
+
+    //public bool IsBoosting()
+    //{
+    //    return boosting;
+    //}
 
     public void SetHoriz(float axis)
     {
