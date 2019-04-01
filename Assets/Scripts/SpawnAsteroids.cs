@@ -23,6 +23,6 @@ public class SpawnAsteroids : MonoBehaviour {
     {
         Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y + player.transform.position.y, spawnZone.z);
         Instantiate(AsterPrefab, spawnPos, Quaternion.identity);
-        Invoke("SpawnAster", 1f / spawnPerSec  / ship.speedMult * Random.Range(0.4f, 1.6f));
+        Invoke("SpawnAster", 1f / spawnPerSec  * Random.Range(0.4f, 1.6f));
     }
 }

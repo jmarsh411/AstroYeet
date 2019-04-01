@@ -11,8 +11,8 @@ public class Obstacle : MonoBehaviour
         ship = GameObject.FindWithTag("PlayerShip").GetComponent<Ship>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        transform.position += new Vector3(0, -ship.speed, 0);
+
     }
 }
