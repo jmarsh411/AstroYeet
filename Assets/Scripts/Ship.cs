@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ship : MonoBehaviour
 {
     private GameManager game;
-    private CircleCollider2D collider;
+    private CircleCollider2D coll;
     private Rigidbody2D rBody;
 
     private Vector2 thrust;
@@ -23,7 +23,7 @@ public class Ship : MonoBehaviour
     void Awake()
     {
         game = Camera.main.GetComponent<GameManager>();
-        collider = GetComponent<CircleCollider2D>();
+        coll = GetComponent<CircleCollider2D>();
         rBody = GetComponent<Rigidbody2D>();
     }
 
@@ -33,7 +33,7 @@ public class Ship : MonoBehaviour
         thrust = new Vector2(0, 20f);
         horizAxis = 0f;
         vertAxis = 0f;
-        colliderPadding = collider.bounds.extents.x;
+        colliderPadding = coll.bounds.extents.x;
         leftBound = game.playArea.min.x + colliderPadding;
         rightBound = game.playArea.max.x - colliderPadding;
         boosting = false;
