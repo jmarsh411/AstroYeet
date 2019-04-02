@@ -8,6 +8,7 @@ public class Ship : MonoBehaviour
     private CircleCollider2D coll;
     private Rigidbody2D rBody;
 
+    public int shield;
     private Vector2 thrust;
     private Vector3 temp;
     float tempx;
@@ -30,6 +31,7 @@ public class Ship : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        shield = 50;
         thrust = new Vector2(0, 20f);
         horizAxis = 0f;
         vertAxis = 0f;
