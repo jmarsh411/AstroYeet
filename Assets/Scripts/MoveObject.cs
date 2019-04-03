@@ -7,7 +7,7 @@ public class MoveObject : MonoBehaviour {
     public float speed;
 	
 	// Update is called once per frame
-	void Update () {
-        transform.position += new Vector3(0, speed, 0);
+	void FixedUpdate () {
+        transform.position += new Vector3(0, speed, 0) * Time.deltaTime;
 	}
 }
