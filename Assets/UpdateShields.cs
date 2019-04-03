@@ -13,7 +13,7 @@ public class UpdateShields : MonoBehaviour
     {
         ship = GameObject.FindWithTag("PlayerShip").GetComponent<Ship>();
         text = GetComponent<Text>();
-        updRate = 0.3f;
+        updRate = 0.25f;
     }
     // Start is called before the first frame update
     void Start()

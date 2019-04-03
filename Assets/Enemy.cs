@@ -6,15 +6,22 @@ public class Enemy : MonoBehaviour
 {
     public GameObject LaserPrefab;
 
+    private GameManager game;
     private GameObject player;
     private Ship ship;
     private Rigidbody2D playerRB;
     private Rigidbody2D enemyRB;
     private const float startDist = 900;
-    private float fastVelMult;
+    private const float fastVelMult = 1.2f;
+    private const float minAccSpread = 0.5f;
+    private float maxAccSpread;
+
+    float dist;
+    float acc;
 
     private void Awake()
     {
+        game = Camera.main.GetComponent<GameManager>();
         player = GameObject.FindWithTag("PlayerShip");
         ship = player.GetComponent<Ship>();
         enemyRB = GetComponent<Rigidbody2D>();
@@ -25,7 +32,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         transform.position -= new Vector3(0, startDist, 0);
-        fastVelMult = 1.2f;
+        maxAccSpread = game.playArea.extents.x;
     }
 
     // Update is called once per frame
@@ -36,8 +43,17 @@ public class Enemy : MonoBehaviour
         //temporary testing key
         if (Input.GetKeyUp(KeyCode.L))
         {
-            ShootLaser(transform.position);
+            SpawnLaser();
         }
+    }
+
+
+    public void SpawnLaser()
+    {
+        dist = player.transform.position.y - transform.position.y;
+        float spread = Mathf.Clamp(dist / 200, minAccSpread, maxAccSpread);
+        Vector3 spawnPos = new Vector3(Random.Range(-spread, spread), transform.position.y, 0);
+        ShootLaser(spawnPos);
     }
 
     public void ShootLaser(Vector3 position)
