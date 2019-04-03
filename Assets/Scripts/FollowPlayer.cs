@@ -4,9 +4,13 @@ using UnityEngine;
 
     public class FollowPlayer: MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     private Vector3 offset;
 
+    private void Awake()
+    {
+        player = GameObject.FindWithTag("PlayerShip");
+    }
     // Start is called before the first frame update
     void Start()
     {
