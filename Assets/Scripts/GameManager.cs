@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     private Camera cam;
     public float uiOffset;
 
+    // how far player must travel to win
+    public static float goalDist = 1000;
+    public static float playerHeadStart = 400;
+
     private void Awake()
     {
         cam = GetComponent<Camera>();
