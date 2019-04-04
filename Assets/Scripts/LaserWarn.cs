@@ -5,6 +5,7 @@ using UnityEngine;
 public class LaserWarn : MonoBehaviour
 {
     private GameObject player;
+    private float laserYOffset = -1.2f;
     SpawnLasers lasers;
     Vector3 laserPos;
     Animator anim;
@@ -42,13 +43,13 @@ public class LaserWarn : MonoBehaviour
     IEnumerator DestroyAfter(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        //Destroy(transform.parent.gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
-    //void OnDestroy()
-    //{
-    //    laserPos = transform.position;
-    //    laserPos = new Vector3(laserPos.x, laserPos.y + laserYOffset, laserPos.z);
-    //    lasers.SpawnLaser(laserPos);
-    //}
+    void OnDestroy()
+    {
+        laserPos = transform.position;
+        laserPos = new Vector3(laserPos.x, laserPos.y + laserYOffset, laserPos.z);
+        lasers.SpawnLaser(laserPos);
+    }
 }

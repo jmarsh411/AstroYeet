@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     private const float minAccSpread = 0.5f;
     private float maxAccSpread;
 
-    float dist;
+    public float dist;
     float acc;
 
     private void Awake()
@@ -34,11 +34,13 @@ public class Enemy : MonoBehaviour
     {
         transform.position -= new Vector3(0, startDist, 0);
         maxAccSpread = game.playArea.extents.x;
+        dist = player.transform.position.y - transform.position.y;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        dist = player.transform.position.y - transform.position.y;
         enemyRB.velocity = playerRB.velocity * fastVelMult;
 
         //temporary testing key
@@ -51,7 +53,6 @@ public class Enemy : MonoBehaviour
 
     public void SpawnLaser()
     {
-        dist = player.transform.position.y - transform.position.y;
         float spread = Mathf.Clamp(dist / 200, minAccSpread, maxAccSpread);
         Vector3 spawnPos = new Vector3(Random.Range(-spread, spread), transform.position.y, 0);
         ShootLaser(spawnPos);

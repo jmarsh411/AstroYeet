@@ -15,7 +15,8 @@ public class SpawnAsteroids : MonoBehaviour {
 
     void Awake()
     {
-        ship = GameObject.FindWithTag("PlayerShip").GetComponent<Ship>();
+        player = GameObject.FindWithTag("PlayerShip");
+        ship = player.GetComponent<Ship>();
         Invoke("SpawnAster", 1f / spawnPerSec);
     }
 

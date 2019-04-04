@@ -27,22 +27,22 @@ public class Laser : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
-    {
-        distance = player.transform.position.y - transform.position.y;
-        if (!warning && distance < warnDist)
-        {
-            warning = true;
-            Vector3 warnPos = new Vector3(transform.position.x, player.transform.position.y, 0) + warnOffset;
-            laserWarning = Instantiate(laserWarningPrefab, warnPos, Quaternion.identity);
-            warn = laserWarning.GetComponentInChildren<LaserWarn>();
-        }
+    //void FixedUpdate()
+    //{
+    //    distance = player.transform.position.y - transform.position.y;
+    //    if (!warning && distance < warnDist)
+    //    {
+    //        warning = true;
+    //        Vector3 warnPos = new Vector3(transform.position.x, player.transform.position.y, 0) + warnOffset;
+    //        laserWarning = Instantiate(laserWarningPrefab, warnPos, Quaternion.identity);
+    //        warn = laserWarning.GetComponentInChildren<LaserWarn>();
+    //    }
 
-        if (warning && distance >= 0)
-        {
-            //warn.UpdState(distance);
-        }
-    }
+    //    if (warning && distance >= 0)
+    //    {
+    //        //warn.UpdState(distance);
+    //    }
+    //}
 
     //IEnumerator SpawnWarning()
     //{
