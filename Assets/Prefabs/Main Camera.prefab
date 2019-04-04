@@ -152,6 +152,6 @@ MonoBehaviour:
   player: {fileID: 0}
   AsterPrefab: {fileID: 1038001223607396, guid: d5bf0bff913802248bf6bcb4e941506f,
     type: 3}
-  spawnPerSec: 2
+  spawnPerSec: 1.75
   spawnPadding: 1.5
   spawnZone: {x: 4.3, y: 20, z: 0}

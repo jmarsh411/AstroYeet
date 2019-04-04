@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ship : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class Ship : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(0, GameManager.playerHeadStart, 0);
-        shield = 50;
+        shield = 5;
         thrust = new Vector2(0, 20f);
         horizAxis = 0f;
         vertAxis = 0f;
@@ -68,6 +69,16 @@ public class Ship : MonoBehaviour
         {
             Decel();
         }
+
+        if (transform.position.y > GameManager.goalY)
+        {
+            YouWin();
+        }
+    }
+
+    private void YouWin()
+    {
+        SceneManager.LoadScene("Yeet");
     }
 
     public void Accel()
