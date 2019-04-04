@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
 
     // how far player must travel to win
     public static float goalDist = 1000;
-    public static float playerHeadStart = 400;
+    public static float playerHeadStart = 250;
+    public static float goalY = goalDist + playerHeadStart;
 
     private void Awake()
     {

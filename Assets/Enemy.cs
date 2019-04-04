@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position -= new Vector3(0, startDist, 0);
+        transform.position = Vector3.zero;
         maxAccSpread = game.playArea.extents.x;
         dist = player.transform.position.y - transform.position.y;
     }

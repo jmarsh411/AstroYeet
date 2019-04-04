@@ -31,6 +31,7 @@ public class Ship : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        transform.position = new Vector3(0, GameManager.playerHeadStart, 0);
         shield = 50;
         thrust = new Vector2(0, 20f);
         horizAxis = 0f;

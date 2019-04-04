@@ -31,7 +31,7 @@ public class ShipUIIcon : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 newPos = new Vector3(rectT.anchoredPosition.x, ship.transform.position.y * parentRTrans.rect.size.y / GameManager.goalDist + Enemy.startDist);
+        Vector2 newPos = new Vector3(rectT.anchoredPosition.x, ship.transform.position.y * parentRTrans.rect.size.y / GameManager.goalY);
         rectT.anchoredPosition = newPos;
     }
 }
