@@ -74,12 +74,23 @@ public class Ship : MonoBehaviour
         {
             YouWin();
         }
+
+        if (shield <= 0)
+        {
+            GameOver();
+        }
     }
 
     private void YouWin()
     {
         SceneManager.LoadScene("Yeet");
     }
+
+    private void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
 
     public void Accel()
     {
@@ -89,6 +100,11 @@ public class Ship : MonoBehaviour
     public void Decel()
     {
         rBody.AddForce(-thrust);
+    }
+
+    public void TakeDamage(int amount)
+    {
+        shield -= amount;
     }
 
     //public void Boost()

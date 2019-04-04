@@ -6,6 +6,7 @@ public class Laser : MonoBehaviour
 {
     public GameObject laserWarningPrefab;
     private GameObject player;
+    private Ship ship;
     private GameObject laserWarning;
     private LaserWarn warn;
 
@@ -17,6 +18,7 @@ public class Laser : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindWithTag("PlayerShip");
+        ship = player.GetComponent<Ship>();
     }
 
     // Start is called before the first frame update
@@ -24,6 +26,15 @@ public class Laser : MonoBehaviour
     {
         warning = false;
         warnDist = 100;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject == player)
+        {
+            ship.TakeDamage(1);
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame

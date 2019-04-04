@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    private GameObject player;
     private Ship ship;
 
     void Awake()
     {
-        ship = GameObject.FindWithTag("PlayerShip").GetComponent<Ship>();
+        player = GameObject.FindWithTag("PlayerShip");
+        ship = player.GetComponent<Ship>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject == player)
+        {
+            ship.TakeDamage(1);
+            Destroy(this.gameObject);
+        }
     }
 
     void Update()

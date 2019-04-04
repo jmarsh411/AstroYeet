@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Yeet.unity
     guid: 1e52932dd36c17047a0b4cb99567ab2b
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 5580ab0845eebbf4fa2d6a3e9749e515
   m_configObjects: {}
