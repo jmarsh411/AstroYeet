@@ -38,25 +38,31 @@ public class InputManager : MonoBehaviour
         else
             ship.SetVert(0);
 
-        // if boost button is pressed, boost if allowed and not already boosting
-        if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
-        {
-            if (canBoost && !ship.IsBoosting())
-            {
-                Boost();
-            }
-        }
+        //// if boost button is pressed, boost if allowed and not already boosting
+        //if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
+        //{
+        //    ship.Accel();
+        //}
+
+        //// if boost button is pressed, boost if allowed and not already boosting
+        //if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
+        //{
+        //    if (canBoost && !ship.IsBoosting())
+        //    {
+        //        Boost();
+        //    }
+        //}
     }
 
-    void Boost()
-    {
-        ship.Boost();
-        canBoost = false;
-        Invoke("ResetBoost", boostTimeout);
-    }
+    //void Boost()
+    //{
+    //    ship.Boost();
+    //    canBoost = false;
+    //    Invoke("ResetBoost", boostTimeout);
+    //}
 
-    void ResetBoost()
-    {
-        canBoost = true;
-    }
+    //void ResetBoost()
+    //{
+    //    canBoost = true;
+    //}
 }

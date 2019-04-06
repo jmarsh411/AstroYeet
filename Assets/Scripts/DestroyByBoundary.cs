@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class DestroyByBoundary : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    private GameObject player;
+
+    private void Awake()
+    {
+        player = GameObject.FindWithTag("PlayerShip");
+    }
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -14,12 +20,10 @@ public class DestroyByBoundary : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Entered trigger");
-    }
-
     void OnTriggerExit2D(Collider2D other) {
-        Destroy(other.gameObject);
+        if (other.gameObject != player)
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
