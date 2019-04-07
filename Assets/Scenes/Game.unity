@@ -482,16 +482,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1173816551128700524, guid: 4907abaaaf0db3042a06a6fd31b4168e,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 23.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7447687073769003712, guid: 4907abaaaf0db3042a06a6fd31b4168e,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 10.4
-      objectReference: {fileID: 0}
     - target: {fileID: 2909661832436000385, guid: 4907abaaaf0db3042a06a6fd31b4168e,
         type: 3}
       propertyPath: ship
@@ -502,13 +492,7 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 1868962491}
-    - target: {fileID: 4543342175741506392, guid: 4907abaaaf0db3042a06a6fd31b4168e,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7447687073769003713, guid: 4907abaaaf0db3042a06a6fd31b4168e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4907abaaaf0db3042a06a6fd31b4168e, type: 3}
 --- !u!1001 &1561123067
 PrefabInstance:
