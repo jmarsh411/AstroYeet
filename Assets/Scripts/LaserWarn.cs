@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class LaserWarn : MonoBehaviour
 {
+    private GameObject player;
+    private float laserYOffset = -1.2f;
     SpawnLasers lasers;
     Vector3 laserPos;
     Animator anim;
-    private float laserYOffset;
 
     private void Awake()
     {
-        laserYOffset = -3f;
         anim = GetComponent<Animator>();
+        lasers = Camera.main.GetComponent<SpawnLasers>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        lasers = Camera.main.GetComponent<SpawnLasers>();
         StartCoroutine(BlinkAfter(2.15f));
         StartCoroutine(DestroyAfter(3f));
     }
@@ -27,6 +27,11 @@ public class LaserWarn : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdState(float distance)
+    {
+        anim.Play(0, 0, distance * 0.01f);
     }
 
     IEnumerator BlinkAfter(float waitTime)
