@@ -11,14 +11,12 @@ public class SpawnAsteroids : MonoBehaviour {
     public float spawnPerSec = 1f;
     public float spawnPadding = 1.5f;
     public Vector3 spawnZone;
-    private Ship ship;
     private Rigidbody2D playerRB;
 
     void Awake()
     {
         player = GameObject.FindWithTag("PlayerShip");
         playerRB = player.GetComponent<Rigidbody2D>();
-        ship = player.GetComponent<Ship>();
         Invoke("SpawnAster", 1f / spawnPerSec);
     }
 

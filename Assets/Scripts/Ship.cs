@@ -18,9 +18,9 @@ public class Ship : MonoBehaviour
     private float rightBound;
     private float horizSpeed = 5f;
     private float horizAxis;
-    private float vertAxis;
+    //private float vertAxis;
     private Vector3 move;
-    private bool boosting;
+    //private bool boosting;
 
     void Awake()
     {
@@ -36,11 +36,11 @@ public class Ship : MonoBehaviour
         shield = 5;
         thrust = new Vector2(0, 20f);
         horizAxis = 0f;
-        vertAxis = 0f;
+        //vertAxis = 0f;
         colliderPadding = coll.bounds.extents.x;
         leftBound = game.playArea.min.x + colliderPadding;
         rightBound = game.playArea.max.x - colliderPadding;
-        boosting = false;
+        //boosting = false;
     }
 
     // Update is called once per frame
@@ -171,6 +171,6 @@ public class Ship : MonoBehaviour
 
     public void SetVert(float axis)
     {
-        vertAxis = axis;
+        //vertAxis = axis;
     }
 }

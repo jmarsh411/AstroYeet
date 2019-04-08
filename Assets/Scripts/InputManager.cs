@@ -7,8 +7,6 @@ public class InputManager : MonoBehaviour
     public GameObject playerShip;
     private Ship ship;
     private Vector3 move;
-    private bool canBoost = true;
-    private float boostTimeout = 1.5f;
     // deadzone to pad against broken/miscalibrated controllers
     private float horizDeadzone = 0.1f;
     private float vertDeadzone = 0.1f;
@@ -37,32 +35,6 @@ public class InputManager : MonoBehaviour
             ship.SetVert(vertAxis);
         else
             ship.SetVert(0);
-
-        //// if boost button is pressed, boost if allowed and not already boosting
-        //if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
-        //{
-        //    ship.Accel();
-        //}
-
-        //// if boost button is pressed, boost if allowed and not already boosting
-        //if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
-        //{
-        //    if (canBoost && !ship.IsBoosting())
-        //    {
-        //        Boost();
-        //    }
-        //}
     }
 
-    //void Boost()
-    //{
-    //    ship.Boost();
-    //    canBoost = false;
-    //    Invoke("ResetBoost", boostTimeout);
-    //}
-
-    //void ResetBoost()
-    //{
-    //    canBoost = true;
-    //}
 }
