@@ -8,6 +8,7 @@ public class ScrollBG : MonoBehaviour
     private GameObject player;
     private Vector3 startPos;
     private float tileSizeY = 20;
+    private Vector3 offset = new Vector3(0, 10 + 8, 0);
 
     private void Awake()
     {
@@ -21,10 +22,10 @@ public class ScrollBG : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeY);
-        transform.position = player.transform.position + Vector3.down * newPosition;
+        transform.position = player.transform.position + offset + Vector3.down * newPosition;
         //transform.position = player.transform.position + Vector3.up * newPosition;
     }
 }
