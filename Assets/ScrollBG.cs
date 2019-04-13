@@ -7,7 +7,8 @@ public class ScrollBG : MonoBehaviour
     public float scrollSpeed;
     private GameObject player;
     private Rigidbody2D playerRB;
-    private float tileSizeY = 20;
+    //private float tileSizeY = 20;
+    private float tileSizeY;
     private Vector3 offset = new Vector3(0, 10 + 8, 0);
     private float playerY;
 
@@ -20,6 +21,7 @@ public class ScrollBG : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tileSizeY = GetComponent<SpriteRenderer>().size.y / 2;
     }
 
     // Update is called once per frame
