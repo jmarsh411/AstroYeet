@@ -6,16 +6,14 @@ public class ScrollBG : MonoBehaviour
 {
     public float scrollSpeed;
     private GameObject player;
-    private Rigidbody2D playerRB;
-    //private float tileSizeY = 20;
     private float tileSizeY;
     private Vector3 offset = new Vector3(0, 10 + 8, 0);
     private float playerY;
+    private float tileYOffset;
 
     private void Awake()
     {
         player = GameObject.FindWithTag("PlayerShip");
-        playerRB = player.GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
@@ -25,14 +23,16 @@ public class ScrollBG : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        float tileY = Mathf.Repeat(Time.time * scrollSpeed, tileSizeY);
+        // since the player's position increases more rapidly when speed is higher,
+        // tying the tile offset to position will directly tie the tile's relative speed
+        // to player's speed. Mathf.repeat will reset the position of the tile when the
+        // tile has fully scaled across the player
+        tileYOffset = Mathf.Repeat(player.transform.position.y * scrollSpeed, tileSizeY);
         playerY = player.transform.position.y;
         Vector3 newPos = new Vector3(0, playerY);
-        //float tileY = Mathf.Repeat(Time.time * scrollSpeed * playerRB.velocity.y, tileSizeY);
 
-        transform.position = newPos + offset + Vector3.down * tileY;
-        //transform.position = player.transform.position + Vector3.up * tileY;
+        transform.position = newPos + offset + Vector3.down * tileYOffset;
     }
 }
