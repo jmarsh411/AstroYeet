@@ -5,11 +5,11 @@ using UnityEngine;
 public class ScrollBG : MonoBehaviour
 {
     public float scrollSpeed;
+
     private GameObject player;
-    private float tileSizeY;
-    private Vector3 offset = new Vector3(0, 10 + 8, 0);
-    private float playerY;
+    private float tileHeight;
     private float tileYOffset;
+    private Vector3 camOffset;
 
     private void Awake()
     {
@@ -19,20 +19,21 @@ public class ScrollBG : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tileSizeY = GetComponent<SpriteRenderer>().size.y / 2;
+        // the tile height has been set to be double the height of the screen
+        // this gets the original tile height
+        tileHeight = GetComponent<SpriteRenderer>().size.y / 2;
+        camOffset = new Vector3(0, Camera.main.transform.position.y + tileHeight / 2);
     }
 
     // Update is called once per frame
     void Update()
     {
         // since the player's position increases more rapidly when speed is higher,
-        // tying the tile offset to position will directly tie the tile's relative speed
+        // tying the tile camOffset to position will directly tie the tile's relative speed
         // to player's speed. Mathf.repeat will reset the position of the tile when the
         // tile has fully scaled across the player
-        tileYOffset = Mathf.Repeat(player.transform.position.y * scrollSpeed, tileSizeY);
-        playerY = player.transform.position.y;
-        Vector3 newPos = new Vector3(0, playerY);
-
-        transform.position = newPos + offset + Vector3.down * tileYOffset;
+        tileYOffset = Mathf.Repeat(player.transform.position.y * scrollSpeed, tileHeight);
+        Vector3 newPos = new Vector3(0, player.transform.position.y);
+        transform.position = newPos + camOffset + Vector3.down * tileYOffset;
     }
 }
