@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Global TODO
+    // - decouple ship from shield
+
     //public Score score;
     public float enemyDist;
     public float laserSpeed;

@@ -26,7 +26,9 @@ public class UpdateShields : MonoBehaviour
     {
         while (true)
         {
-            text.text = ship.shield.ToString();
+            //text.text = ship.shield.ToString();
+            text.text = Mathf.FloorToInt(ship.shield).ToString();
+
             yield return new WaitForSeconds(updRate);
         }
     }
