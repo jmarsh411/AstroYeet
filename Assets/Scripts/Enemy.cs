@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
         dist = player.transform.position.y - transform.position.y;
-        if (dist > 50)
+        if (dist > 30)
         {
             Vector2 newVel = new Vector2(0, Mathf.Max(10f, playerRB.velocity.y * fastVelMult));
             enemyRB.velocity = newVel;
