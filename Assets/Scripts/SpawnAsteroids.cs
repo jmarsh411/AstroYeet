@@ -42,7 +42,8 @@ public class SpawnAsteroids : MonoBehaviour {
     {
         Vector3 spawnPos = new Vector3(Random.Range(leftBound, rightBound), spawnZone.y + player.transform.position.y, 0);
         Instantiate(AsterPrefab, spawnPos, Quaternion.identity);
-        float speedmult = playerRB.velocity.y / 4;
-        Invoke("SpawnAster", 1f / spawnPerSec / speedmult  * Random.Range(0.4f, 1.6f));
+        float speedmult = 0.001f + playerRB.velocity.y / 4;
+        float delay = 1f / spawnPerSec / speedmult * Random.Range(0.4f, 1.6f);
+        Invoke("SpawnAster", delay);
     }
 }
