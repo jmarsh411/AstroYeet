@@ -6,30 +6,39 @@ using UnityEngine.SceneManagement;
 
 public class EndOfGame : MonoBehaviour
 {
+    private bool readyForInput;
+
     // Start is called before the first frame update
     void Start()
     {
+        readyForInput = false;
+        Invoke("AcceptInput", 1f);
+    }
 
+    void AcceptInput()
+    {
+        readyForInput = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (readyForInput)
         {
-            Quit();
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Quit();
+            }
+            else if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                MainMenu();
+            }
+            else if (Input.anyKey)
+            {
+                //MainMenu();
+                Restart();
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            MainMenu();
-        }
-        else if (Input.anyKey)
-        {
-            //MainMenu();
-            Restart();
-        }
-
-
     }
 
     private void Quit()
