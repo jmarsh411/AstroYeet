@@ -16,8 +16,26 @@ public class Enemy : MonoBehaviour
     private float maxAccSpread;
     private Vector2 currSpeed;
 
+    enum RelSpeed { VerySlow, Slow, Match, Fast, VeryFast };
+
+    // thresholds for enemy relative speed
+    private float verySlowThresh;
+    private float slowThresh;
+    private float matchThresh;
+    private float fastThresh;
+    private float veryFastThresh;
+
+    // multipliers for enemy relative speed
+    private float verySlowMult;
+    private float slowMult;
+    private float matchSpeedMult;
+    private float fastMult;
+    private float veryFastMult;
+
+    private Dictionary<RelSpeed, float> speedMult;
+    private Dictionary<RelSpeed, float> speedThresh;
+
     public float dist;
-    float acc;
 
     private void Awake()
     {
@@ -34,6 +52,21 @@ public class Enemy : MonoBehaviour
         transform.position = Vector3.zero;
         maxAccSpread = game.playArea.extents.x;
         dist = player.transform.position.y - transform.position.y;
+
+        // set thresholds for enemy relative speed
+        verySlowThresh = 0.1f;
+        slowThresh = 0.3f;
+        matchThresh = 0.5f;
+        fastThresh = 0.6f;
+        veryFastThresh = 0.85f;
+
+        // set enemy relative speed multipliers
+        speedMult = new Dictionary<RelSpeed, float>();
+        speedMult[RelSpeed.VerySlow] = 0.5f;
+        speedMult[RelSpeed.Slow] = 0.75f;
+        speedMult[RelSpeed.Match] = 1f;
+        speedMult[RelSpeed.Fast] = 1.25f;
+        speedMult[RelSpeed.VeryFast] = 1.5f;
 
         // set the starting velocity of the enemies
         currSpeed = new Vector2(0, 10f);
@@ -64,6 +97,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator UpdateSpeed()
     {
+        float roll;
+        RelSpeed relSpeed = RelSpeed.Match;
         yield return new WaitUntil(() => ship.speedHist.Count > 0);
         while (true)
         {
@@ -71,8 +106,21 @@ public class Enemy : MonoBehaviour
             float nextPos = speedEntry.x;
             float nextSpeed = speedEntry.y;
             yield return new WaitUntil(() => ReachedNextCheckpoint(nextPos));
-            //enemyRB.velocity = new Vector2(0, nextSpeed);
-            currSpeed = new Vector2(0, nextSpeed);
+
+            // determine how fast the enemy should be going
+            roll = Random.Range(0f, 1f);
+            if (roll < verySlowThresh)
+                relSpeed = RelSpeed.VerySlow;
+            else if (roll < slowThresh)
+                relSpeed = RelSpeed.Slow;
+            else if (roll < matchThresh)
+                relSpeed = RelSpeed.Match;
+            else if (roll < fastThresh)
+                relSpeed = RelSpeed.Fast;
+            else if (roll < veryFastThresh)
+                relSpeed = RelSpeed.VeryFast;
+
+            currSpeed = new Vector2(0, nextSpeed * speedMult[relSpeed]);
         }
     }
 
