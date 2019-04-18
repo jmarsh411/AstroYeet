@@ -36,6 +36,9 @@ public class Ship : MonoBehaviour
         coll = GetComponent<CircleCollider2D>();
         rBody = GetComponent<Rigidbody2D>();
         speedHist = new Queue<Vector2>();
+        // The starting speed of enemies until they catch up to the player start position
+        //speedHist.Enqueue(new Vector2(-1, 10));
+        StartCoroutine(UpdateHistory());
     }
 
     // Use this for initialization
@@ -54,9 +57,7 @@ public class Ship : MonoBehaviour
         rightBound = game.playArea.max.x - colliderPadding;
         //boosting = false;
 
-        // The starting speed of enemies until they catch up to the player start position
-        //speedHist.Enqueue(new Vector2(-1, 10));
-        StartCoroutine(UpdateHistory());
+
     }
 
     // Update is called once per frame
@@ -102,6 +103,7 @@ public class Ship : MonoBehaviour
 
     IEnumerator UpdateHistory()
     {
+        yield return new WaitUntil(()=> transform.position.y > GameManager.playerHeadStart + 20);
         while (true)
         {
             speedHist.Enqueue(new Vector2(transform.position.y, rBody.velocity.y));
