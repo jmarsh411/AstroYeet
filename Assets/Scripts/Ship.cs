@@ -22,6 +22,12 @@ public class Ship : MonoBehaviour
     private Vector3 move;
     //private bool boosting;
 
+    // This is a queue of Vector2, which is in this case a substitute for Tuples since
+    // Unity doesn't support them. It contains y-position, y-speed pairs for the enemy
+    // to keep track of
+    public Queue<Vector2> speedHist;
+    private float historyInterval;
+
     private float shieldRegen;
 
     void Awake()
@@ -29,6 +35,7 @@ public class Ship : MonoBehaviour
         game = Camera.main.GetComponent<GameManager>();
         coll = GetComponent<CircleCollider2D>();
         rBody = GetComponent<Rigidbody2D>();
+        speedHist = new Queue<Vector2>();
     }
 
     // Use this for initialization
@@ -40,11 +47,16 @@ public class Ship : MonoBehaviour
         shieldRegen = 1f / (50 * 60);
         thrust = new Vector2(0, 20f);
         horizAxis = 0f;
+        historyInterval = 3f;
         //vertAxis = 0f;
         colliderPadding = coll.bounds.extents.x;
         leftBound = game.playArea.min.x + colliderPadding;
         rightBound = game.playArea.max.x - colliderPadding;
         //boosting = false;
+
+        // The starting speed of enemies until they catch up to the player start position
+        //speedHist.Enqueue(new Vector2(-1, 10));
+        StartCoroutine(UpdateHistory());
     }
 
     // Update is called once per frame
@@ -83,6 +95,17 @@ public class Ship : MonoBehaviour
         if (shield < 1)
         {
             GameOver();
+        }
+    }
+
+
+
+    IEnumerator UpdateHistory()
+    {
+        while (true)
+        {
+            speedHist.Enqueue(new Vector2(transform.position.y, rBody.velocity.y));
+            yield return new WaitForSeconds(historyInterval);
         }
     }
 

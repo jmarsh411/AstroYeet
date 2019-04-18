@@ -11,8 +11,6 @@ public class Enemy : MonoBehaviour
     private Ship ship;
     private Rigidbody2D playerRB;
     private Rigidbody2D enemyRB;
-    //private const float startDist = 900;
-    public static float startDist = 400;
     private const float fastVelMult = 1.2f;
     private const float minAccSpread = 0.5f;
     private float maxAccSpread;
