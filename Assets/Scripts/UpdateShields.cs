@@ -7,31 +7,43 @@ public class UpdateShields : MonoBehaviour
 {
     private Ship ship;
     private Text text;
+    private RectTransform rect;
     private float updRate;
 
     private void Awake()
     {
         ship = GameObject.FindWithTag("PlayerShip").GetComponent<Ship>();
-        text = GetComponent<Text>();
+        //text = GetComponent<Text>();
+        rect= GetComponent<RectTransform>();
+        // UI stuff doesn't need to update every frame
         updRate = 0.25f;
     }
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(UpdateText());
+        //StartCoroutine(UpdateText());
+        StartCoroutine(UpdateBar());
     }
 
-    // UI stuff doesn't need to update every frame
-    IEnumerator UpdateText()
+    IEnumerator UpdateBar()
     {
         while (true)
         {
-            //text.text = ship.shield.ToString();
-            text.text = Mathf.FloorToInt(ship.shield).ToString();
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, ship.shield * 10f);
 
             yield return new WaitForSeconds(updRate);
         }
     }
+
+    //IEnumerator UpdateText()
+    //{
+    //    while (true)
+    //    {
+    //        text.text = Mathf.FloorToInt(ship.shield).ToString();
+
+    //        yield return new WaitForSeconds(updRate);
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()

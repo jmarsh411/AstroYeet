@@ -93,7 +93,7 @@ public class Ship : MonoBehaviour
         }
 
         shield = Mathf.Min(shield + shieldRegen, 5f);
-        if (shield < 1)
+        if (shield <= 0)
         {
             GameOver();
         }
