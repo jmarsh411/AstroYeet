@@ -28,7 +28,7 @@ public class SpawnLasers : MonoBehaviour {
         player = GameObject.FindWithTag("PlayerShip");
         enemyShip = GameObject.FindWithTag("EnemyShip");
         enemy = enemyShip.GetComponent<Enemy>();
-        Invoke("SpawnWarning", (enemy.dist + 75) / 50);
+        Invoke("SpawnWarning", (enemy.dist + 50) / 75);
     }
 
     private void Start()
@@ -38,29 +38,29 @@ public class SpawnLasers : MonoBehaviour {
     }
 
 
-    void SpawnLaserOLDER()
-    {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
-        //Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
-        Instantiate(LaserPrefab, spawnPos, Quaternion.identity);
-        Invoke("SpawnLaserOLDER", 1f / spawnPerSec);
-    }
+    //void SpawnLaserOLDER()
+    //{
+    //    Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
+    //    //Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
+    //    Instantiate(LaserPrefab, spawnPos, Quaternion.identity);
+    //    Invoke("SpawnLaserOLDER", 1f / spawnPerSec);
+    //}
 
-    void SpawnWarningOLD()
-    {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
-        Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
-        Invoke("SpawnWarningOLD", 1f / spawnPerSec);
-    }
+    //void SpawnWarningOLD()
+    //{
+    //    Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, spawnZone.y, spawnZone.z);
+    //    Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
+    //    Invoke("SpawnWarningOLD", 1f / spawnPerSec);
+    //}
 
-    void SpawnWarning3()
-    {
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, player.transform.position.y + playerOffset, spawnZone.z);
-        Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
-        // minimum of 1.5 seconds for 0 distance
-        // want about 10 seconds for distance 400
-        Invoke("SpawnWarning3", (enemy.dist + 75) / 50);
-    }
+    //void SpawnWarning3()
+    //{
+    //    Vector3 spawnPos = new Vector3(Random.Range(-spawnZone.x, spawnZone.x) + uiOffset, player.transform.position.y + playerOffset, spawnZone.z);
+    //    Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
+    //    // minimum of 1.5 seconds for 0 distance
+    //    // want about 10 seconds for distance 400
+    //    Invoke("SpawnWarning3", (enemy.dist + 75) / 50);
+    //}
 
     void SpawnWarning()
     {
@@ -72,7 +72,7 @@ public class SpawnLasers : MonoBehaviour {
         Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
         // minimum of 1.5 seconds for 0 distance
         // want about 10 seconds for distance 400
-        Invoke("SpawnWarning", (enemy.dist + 75) / 50);
+        Invoke("SpawnWarning", (enemy.dist + 50) / 75);
     }
 
     public void SpawnLaser(Vector3 position)

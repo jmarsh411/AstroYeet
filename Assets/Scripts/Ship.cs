@@ -50,7 +50,7 @@ public class Ship : MonoBehaviour
         shieldRegen = 1f / (50 * 60);
         thrust = new Vector2(0, 20f);
         horizAxis = 0f;
-        historyInterval = 3f;
+        historyInterval = 1f;
         //vertAxis = 0f;
         colliderPadding = coll.bounds.extents.x;
         leftBound = game.playArea.min.x + colliderPadding;

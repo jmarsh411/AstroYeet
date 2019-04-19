@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D enemyRB;
     private const float fastVelMult = 1.2f;
     private const float minAccSpread = 0.5f;
+    private const float minSpeed = 5f;
     private float maxAccSpread;
     private Vector2 currSpeed;
 
@@ -53,12 +54,9 @@ public class Enemy : MonoBehaviour
         maxAccSpread = game.playArea.extents.x;
         dist = player.transform.position.y - transform.position.y;
 
-        // set thresholds for enemy relative speed
-        verySlowThresh = 0.1f;
-        slowThresh = 0.3f;
-        matchThresh = 0.5f;
-        fastThresh = 0.6f;
-        veryFastThresh = 0.85f;
+        // In the beginning the enemies are far behind
+        // so set their overall speed to aggressive
+        SetAggroBehav();
 
         // set enemy relative speed multipliers
         speedMult = new Dictionary<RelSpeed, float>();
@@ -69,7 +67,7 @@ public class Enemy : MonoBehaviour
         speedMult[RelSpeed.VeryFast] = 1.5f;
 
         // set the starting velocity of the enemies
-        currSpeed = new Vector2(0, 10f);
+        currSpeed = new Vector2(0, 12f);
         StartCoroutine(UpdateSpeed());
     }
 
@@ -98,6 +96,8 @@ public class Enemy : MonoBehaviour
     IEnumerator UpdateSpeed()
     {
         float roll;
+        float behavSpeed;
+        float trueSpeed;
         RelSpeed relSpeed = RelSpeed.Match;
         yield return new WaitUntil(() => ship.speedHist.Count > 0);
         while (true)
@@ -120,8 +120,47 @@ public class Enemy : MonoBehaviour
             else if (roll < veryFastThresh)
                 relSpeed = RelSpeed.VeryFast;
 
-            currSpeed = new Vector2(0, nextSpeed * speedMult[relSpeed]);
+            // update beahvior based on how close the player is
+            if (dist <= 50)
+                SetKiteBehav();
+            else if (dist <= 150)
+                SetModerateBehav();
+            else
+                SetAggroBehav();
+
+            // set new current speed
+            behavSpeed = nextSpeed * speedMult[relSpeed];
+            trueSpeed = Mathf.Max(behavSpeed, minSpeed);
+            currSpeed = new Vector2(0, trueSpeed);
         }
+    }
+
+    void SetKiteBehav()
+    {
+        verySlowThresh = 0.2f;
+        slowThresh = 0.4f;
+        matchThresh = 1f;
+        // going faster than the player is disabled
+        fastThresh = -100f;
+        veryFastThresh = -100f;
+    }
+    
+    void SetModerateBehav()
+    {
+        verySlowThresh = 0.1f;
+        slowThresh = 0.2f;
+        matchThresh = 0.3f;
+        fastThresh = 0.7f;
+        veryFastThresh = 1f;
+    }
+
+    void SetAggroBehav()
+    {
+        verySlowThresh = 0.05f;
+        slowThresh = 0.15f;
+        matchThresh = 0.3f;
+        fastThresh = 0.5f;
+        veryFastThresh = 1f;
     }
 
     bool ReachedNextCheckpoint(float checkpoint)
