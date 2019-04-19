@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     private GameManager game;
     private GameObject player;
     private Ship ship;
-    private Rigidbody2D playerRB;
     private Rigidbody2D enemyRB;
     private const float fastVelMult = 1.2f;
     private const float minAccSpread = 0.5f;
@@ -44,7 +43,6 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("PlayerShip");
         ship = player.GetComponent<Ship>();
         enemyRB = GetComponent<Rigidbody2D>();
-        playerRB = ship.GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update

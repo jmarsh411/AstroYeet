@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnAsteroids : MonoBehaviour {
-    private float uiOffset = -0.6f;
 
     [Header("Set in Inspector")]
     public GameObject player;
