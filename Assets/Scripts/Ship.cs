@@ -9,6 +9,7 @@ public class Ship : MonoBehaviour
     private CircleCollider2D coll;
     private Rigidbody2D rBody;
 
+    public float maxShields = 5;
     public float shield;
     private Vector2 thrust;
     private Vector3 temp;
@@ -45,7 +46,7 @@ public class Ship : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(0, GameManager.playerHeadStart, 0);
-        shield = 5;
+        shield = maxShields;
         // recover 1 shield every 60 seconds (FixedUpdate procs every 1/50 seconds)
         shieldRegen = 1f / (50 * 60);
         thrust = new Vector2(0, 20f);
@@ -92,7 +93,7 @@ public class Ship : MonoBehaviour
             YouWin();
         }
 
-        shield = Mathf.Min(shield + shieldRegen, 5f);
+        shield = Mathf.Min(shield + shieldRegen, maxShields);
         if (shield <= 0)
         {
             GameOver();

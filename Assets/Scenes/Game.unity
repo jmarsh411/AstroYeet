@@ -429,15 +429,60 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 492653728}
+    - target: {fileID: 4531708139736278020, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531708139736278020, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.11694199
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531708139736278020, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805403406158676777, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805403406158676777, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805403406158676777, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3536753870866741355, guid: 4907abaaaf0db3042a06a6fd31b4168e,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 50
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 9142195682779735719, guid: 4907abaaaf0db3042a06a6fd31b4168e,
         type: 3}
       propertyPath: m_Name
       value: ShieldHealthImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 270492201185802122, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.070588216
+      objectReference: {fileID: 0}
+    - target: {fileID: 270492201185802122, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1843583
+      objectReference: {fileID: 0}
+    - target: {fileID: 270492201185802122, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7921569
       objectReference: {fileID: 0}
     - target: {fileID: 8748030361008319776, guid: 4907abaaaf0db3042a06a6fd31b4168e,
         type: 3}

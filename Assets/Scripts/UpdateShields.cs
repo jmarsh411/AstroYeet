@@ -8,6 +8,7 @@ public class UpdateShields : MonoBehaviour
     private Ship ship;
     private Text text;
     private RectTransform rect;
+    private float initHeight;
     private float updRate;
 
     private void Awake()
@@ -21,6 +22,7 @@ public class UpdateShields : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initHeight = rect.sizeDelta.y;
         //StartCoroutine(UpdateText());
         StartCoroutine(UpdateBar());
     }
@@ -29,7 +31,7 @@ public class UpdateShields : MonoBehaviour
     {
         while (true)
         {
-            rect.sizeDelta = new Vector2(rect.sizeDelta.x, ship.shield * 10f);
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, ship.shield * (ship.maxShields / initHeight));
 
             yield return new WaitForSeconds(updRate);
         }
