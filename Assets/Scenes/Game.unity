@@ -431,6 +431,21 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 492653728}
+    - target: {fileID: 3060522063033524700, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060522063033524700, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060522063033524700, guid: 4907abaaaf0db3042a06a6fd31b4168e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4907abaaaf0db3042a06a6fd31b4168e, type: 3}
 --- !u!1001 &1561123067
