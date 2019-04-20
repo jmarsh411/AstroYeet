@@ -9,6 +9,7 @@ public class Ship : MonoBehaviour
     private CircleCollider2D coll;
     private Rigidbody2D rBody;
     private AudioSource aSource;
+    SpriteRenderer shieldSprite;
 
     public float maxShields = 5;
     public float shield;
@@ -31,6 +32,7 @@ public class Ship : MonoBehaviour
     private float historyInterval;
 
     private float shieldRegen;
+    float shieldDuration = 0.75f;
 
     void Awake()
     {
@@ -39,6 +41,7 @@ public class Ship : MonoBehaviour
         rBody = GetComponent<Rigidbody2D>();
         speedHist = new Queue<Vector2>();
         aSource = GetComponent<AudioSource>();
+        shieldSprite = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         // The starting speed of enemies until they catch up to the player start position
         //speedHist.Enqueue(new Vector2(-1, 10));
         StartCoroutine(UpdateHistory());
@@ -135,10 +138,23 @@ public class Ship : MonoBehaviour
         rBody.AddForce(-thrust);
     }
 
-    public void TakeDamage(int amount)
+    public void TakeHit(int damage)
     {
         aSource.Play();
+        StartCoroutine(FlashShield());
+        TakeDamage(damage);
+    }
+
+    public void TakeDamage(int amount)
+    {
         shield -= amount;
+    }
+
+    IEnumerator FlashShield()
+    {
+        shieldSprite.enabled = true;
+        yield return new WaitForSeconds(shieldDuration);
+        shieldSprite.enabled = false;
     }
 
     //public void Boost()

@@ -32,7 +32,7 @@ public class Laser : MonoBehaviour
     {
         if (collision.gameObject == player)
         {
-            ship.TakeDamage(1);
+            ship.TakeHit(1);
             Destroy(this.gameObject);
         }
     }
