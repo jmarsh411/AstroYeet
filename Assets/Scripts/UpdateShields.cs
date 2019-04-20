@@ -31,7 +31,7 @@ public class UpdateShields : MonoBehaviour
     {
         while (true)
         {
-            rect.sizeDelta = new Vector2(rect.sizeDelta.x, ship.shield * (ship.maxShields / initHeight));
+            rect.sizeDelta = new Vector2(rect.sizeDelta.x, ship.shield * (initHeight / ship.maxShields));
 
             yield return new WaitForSeconds(updRate);
         }
