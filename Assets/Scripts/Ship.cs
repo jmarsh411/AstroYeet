@@ -8,6 +8,7 @@ public class Ship : MonoBehaviour
     private GameManager game;
     private CircleCollider2D coll;
     private Rigidbody2D rBody;
+    private AudioSource aSource;
 
     public float maxShields = 5;
     public float shield;
@@ -37,6 +38,7 @@ public class Ship : MonoBehaviour
         coll = GetComponent<CircleCollider2D>();
         rBody = GetComponent<Rigidbody2D>();
         speedHist = new Queue<Vector2>();
+        aSource = GetComponent<AudioSource>();
         // The starting speed of enemies until they catch up to the player start position
         //speedHist.Enqueue(new Vector2(-1, 10));
         StartCoroutine(UpdateHistory());
@@ -135,6 +137,7 @@ public class Ship : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        aSource.Play();
         shield -= amount;
     }
 
