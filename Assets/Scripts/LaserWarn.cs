@@ -9,10 +9,13 @@ public class LaserWarn : MonoBehaviour
     SpawnLasers lasers;
     Vector3 laserPos;
     Animator anim;
+    private AudioSource aSource;
+
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        aSource = GetComponent<AudioSource>();
         lasers = Camera.main.GetComponent<SpawnLasers>();
     }
 
@@ -38,6 +41,7 @@ public class LaserWarn : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         anim.SetBool("isBlinking", true);
+        aSource.Play();
     }
 
     IEnumerator DestroyAfter(float waitTime)
