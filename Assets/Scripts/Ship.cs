@@ -23,6 +23,7 @@ public class Ship : MonoBehaviour
     private float horizAxis;
     //private float vertAxis;
     private Vector3 move;
+    private bool invulnerable;
     //private bool boosting;
 
     // This is a queue of Vector2, which is in this case a substitute for Tuples since
@@ -32,7 +33,7 @@ public class Ship : MonoBehaviour
     private float historyInterval;
 
     private float shieldRegen;
-    float shieldDuration = 0.75f;
+    float shieldDuration = 1.75f;
 
     void Awake()
     {
@@ -52,6 +53,7 @@ public class Ship : MonoBehaviour
     {
         transform.position = new Vector3(0, GameManager.playerHeadStart, 0);
         shield = maxShields;
+        invulnerable = false;
         // recover 1 shield every 60 seconds (FixedUpdate procs every 1/50 seconds)
         shieldRegen = 1f / (50 * 60);
         thrust = new Vector2(0, 20f);
@@ -141,8 +143,11 @@ public class Ship : MonoBehaviour
     public void TakeHit(int damage)
     {
         aSource.Play();
-        StartCoroutine(FlashShield());
-        TakeDamage(damage);
+        if (!invulnerable)
+        {
+            TakeDamage(damage);
+            StartCoroutine(ShieldInvuln());
+        }
     }
 
     public void TakeDamage(int amount)
@@ -150,10 +155,12 @@ public class Ship : MonoBehaviour
         shield -= amount;
     }
 
-    IEnumerator FlashShield()
+    IEnumerator ShieldInvuln()
     {
+        invulnerable = true;
         shieldSprite.enabled = true;
         yield return new WaitForSeconds(shieldDuration);
+        invulnerable = false;
         shieldSprite.enabled = false;
     }
 
