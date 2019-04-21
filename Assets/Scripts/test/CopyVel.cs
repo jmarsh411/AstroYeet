@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CopyVel : MonoBehaviour
 {
-    public GameObject gameObject;
+    public GameObject gameObj;
     Rigidbody2D rb;
     Rigidbody2D theirRB;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        theirRB = gameObject.GetComponent<Rigidbody2D>();
+        theirRB = gameObj.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

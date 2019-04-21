@@ -10,10 +10,10 @@ public class Laser : MonoBehaviour
     private GameObject laserWarning;
     private LaserWarn warn;
 
-    private bool warning;
+    //private bool warning;
     public float warnDist;
     private float distance;
-    private Vector3 warnOffset = new Vector3(0, -1.2f, 0);
+    //private Vector3 warnOffset = new Vector3(0, -1.2f, 0);
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class Laser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        warning = false;
+        //warning = false;
         warnDist = 100;
     }
 
@@ -32,7 +32,7 @@ public class Laser : MonoBehaviour
     {
         if (collision.gameObject == player)
         {
-            ship.TakeDamage(1);
+            ship.TakeHit(1);
             Destroy(this.gameObject);
         }
     }

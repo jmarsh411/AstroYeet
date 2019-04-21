@@ -11,21 +11,17 @@ public class ShipUIIcon : MonoBehaviour
     private GameObject enemyShip;
     private Enemy enemy;
     private RectTransform rectT;
-    private float totalDist;
 
     private void Awake()
     {
         rectT = GetComponent<RectTransform>();
         parentRTrans = transform.parent.GetComponent<RectTransform>();
-        //enemyShip = GameObject.FindWithTag("EnemyShip");
-
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //rectT.rect.size.y;
-        totalDist = GameManager.goalDist + Enemy.startDist;
+
     }
 
     // Update is called once per frame
