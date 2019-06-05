@@ -16,7 +16,7 @@ public class ShipUIIcon : MonoBehaviour
     {
         rectT = GetComponent<RectTransform>();
         parentRTrans = transform.parent.GetComponent<RectTransform>();
-    }
+    } 
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class ShipUIIcon : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 newPos = new Vector3(rectT.anchoredPosition.x, ship.transform.position.y * parentRTrans.rect.size.y / GameManager.goalY);
+        Vector2 newPos = new Vector3(ship.transform.position.y * parentRTrans.rect.size.x / GameManager.goalY, rectT.anchoredPosition.y);
         rectT.anchoredPosition = newPos;
     }
 }
