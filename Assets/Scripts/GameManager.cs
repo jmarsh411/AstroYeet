@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public GameObject LaserPrefab;
     public Bounds playArea;
     private Camera cam;
-    public float uiOffset;
 
     // how far player must travel to win
     public static float goalDist = 1000;
@@ -29,8 +28,7 @@ public class GameManager : MonoBehaviour
         // UI rect is 50 wide out of a total 450 width, or 1/9
         // 11.25 * 1/9 = 1.25
         // play area width = 11.25 - 1.25 = 10
-        uiOffset = 1.25f;
-        playArea = new Bounds(Vector3.zero, new Vector3(camWidth - uiOffset, camHeight, 0));
+        playArea = new Bounds(Vector3.zero, new Vector3(camWidth, camHeight, 0));
     }
 
     // Start is called before the first frame update
