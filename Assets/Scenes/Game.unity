@@ -564,6 +564,11 @@ PrefabInstance:
     - target: {fileID: 8694328343981622761, guid: cc88bbd996825494cbd0fc58063ee4e1,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694328343981622761, guid: cc88bbd996825494cbd0fc58063ee4e1,
+        type: 3}
+      propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 920233483984280862, guid: cc88bbd996825494cbd0fc58063ee4e1,
