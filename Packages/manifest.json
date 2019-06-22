@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.mambojambostudios.unity-atoms": "https://github.com/AdamRamberg/unity-atoms.git",
     "com.unity.ads": "2.0.8",
     "com.unity.analytics": "3.2.2",
     "com.unity.collab-proxy": "1.2.15",
@@ -36,5 +37,11 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.mambojambostudios.unity-atoms": {
+      "hash": "4c09d78e88badaa319128aaa16306773e4e28a5a",
+      "revision": "HEAD"
+    }
   }
 }

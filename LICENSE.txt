@@ -1,7 +1,7 @@
-No licence granted. All rights reserved, except those given by agreeing to GitHub's Terms of Service.
+Copyright (c) 2019 Joshua Marshall
 
-THE TEXT THAT FOLLOWS IS NOT A LEGAL STATEMENT. IT IS ONLY TO BE REGARDED AS LAYMAN'S TERMS FOR THE LICENSING POSTURE.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The primary goal of putting this repository on GitHub is to showcase the my work to potential employers or partners. However, it's possible that the idea later develops commercial value and that I'd want compensation for the resources (time, money, etc) I invested into it. For this reason, I want to retain as many rights as possible.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-More information can be found here https://choosealicense.com/no-permission/
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
