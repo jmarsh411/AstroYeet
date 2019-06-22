@@ -12,8 +12,8 @@ public class Ship : MonoBehaviour
     private AudioSource aSource;
     SpriteRenderer shieldSprite;
 
-    public FloatVariable shield;
-    public FloatVariable maxShields;
+    public FloatReference shield;
+    public FloatReference maxShields;
     private Vector2 thrust;
     private Vector3 temp;
     float tempx;
@@ -54,7 +54,7 @@ public class Ship : MonoBehaviour
     void Start()
     {
         //transform.position = new Vector3(0, GameManager.playerHeadStart, 0);
-        shield.Value = maxShields.Value;
+        shield.Variable.Value = maxShields.Value;
         invulnerable = false;
         // recover 1 shield every 60 seconds (FixedUpdate procs every 1/50 seconds)
         shieldRegen = 1f / (50 * 60);
@@ -102,7 +102,7 @@ public class Ship : MonoBehaviour
             YouWin();
         }
 
-        shield.Value = Mathf.Min(shield.Value + shieldRegen, maxShields.Value);
+        shield.Variable.Value = Mathf.Min(shield.Value + shieldRegen, maxShields.Value);
         if (shield.Value <= 0)
         {
             GameOver();
@@ -154,7 +154,7 @@ public class Ship : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        shield.Value -= amount;
+        shield.Variable.Value -= amount;
     }
 
     IEnumerator ShieldInvuln()

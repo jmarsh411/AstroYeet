@@ -322,5 +322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0dfe21804318704b9dc138a05f4a4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: {fileID: 11400000, guid: 2b11ac6d8831ab046981134f2d89b5ad, type: 2}
-  maxShields: {fileID: 11400000, guid: 7e5690c35e37e404a88487578ee7390e, type: 2}
+  shield:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 2b11ac6d8831ab046981134f2d89b5ad, type: 2}
+  maxShields:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 7e5690c35e37e404a88487578ee7390e, type: 2}
