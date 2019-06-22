@@ -90,10 +90,10 @@ GameObject:
   - component: {fileID: 4516958340032998877}
   - component: {fileID: 4516958340032998876}
   - component: {fileID: 4516958340032998879}
-  - component: {fileID: 9139943752114166633}
   - component: {fileID: 8694328343981622761}
   - component: {fileID: 1205956912193665207}
   - component: {fileID: 8074843701369080642}
+  - component: {fileID: 3450394088464865636}
   m_Layer: 0
   m_Name: Player Ship
   m_TagString: PlayerShip
@@ -177,20 +177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerShip: {fileID: 4516958340032998867}
---- !u!114 &9139943752114166633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4516958340032998867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0dfe21804318704b9dc138a05f4a4f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxShields: 5
-  shield: 0
 --- !u!58 &8694328343981622761
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -324,3 +310,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3450394088464865636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516958340032998867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0dfe21804318704b9dc138a05f4a4f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shield: {fileID: 11400000, guid: 2b11ac6d8831ab046981134f2d89b5ad, type: 2}
+  maxShields: {fileID: 11400000, guid: 7e5690c35e37e404a88487578ee7390e, type: 2}

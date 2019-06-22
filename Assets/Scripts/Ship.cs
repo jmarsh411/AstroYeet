@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityAtoms;
 
 public class Ship : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class Ship : MonoBehaviour
     private AudioSource aSource;
     SpriteRenderer shieldSprite;
 
-    public float maxShields = 5;
-    public float shield;
+    public FloatVariable shield;
+    public FloatVariable maxShields;
     private Vector2 thrust;
     private Vector3 temp;
     float tempx;
@@ -46,13 +47,14 @@ public class Ship : MonoBehaviour
         // The starting speed of enemies until they catch up to the player start position
         //speedHist.Enqueue(new Vector2(-1, 10));
         StartCoroutine(UpdateHistory());
+        transform.position = new Vector3(0, GameManager.playerHeadStart, 0);
     }
 
     // Use this for initialization
     void Start()
     {
-        transform.position = new Vector3(0, GameManager.playerHeadStart, 0);
-        shield = maxShields;
+        //transform.position = new Vector3(0, GameManager.playerHeadStart, 0);
+        shield.Value = maxShields.Value;
         invulnerable = false;
         // recover 1 shield every 60 seconds (FixedUpdate procs every 1/50 seconds)
         shieldRegen = 1f / (50 * 60);
@@ -100,8 +102,8 @@ public class Ship : MonoBehaviour
             YouWin();
         }
 
-        shield = Mathf.Min(shield + shieldRegen, maxShields);
-        if (shield <= 0)
+        shield.Value = Mathf.Min(shield.Value + shieldRegen, maxShields.Value);
+        if (shield.Value <= 0)
         {
             GameOver();
         }
@@ -152,7 +154,7 @@ public class Ship : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        shield -= amount;
+        shield.Value -= amount;
     }
 
     IEnumerator ShieldInvuln()
