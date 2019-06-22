@@ -102,6 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ed411dc1c80bb49bef65efd861562f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset:
+    UseConstant: 0
+    ConstantValue: {x: 0, y: 0, z: 0}
+    Variable: {fileID: 11400000, guid: ac27755be22e46b4bb7417ae218d1900, type: 2}
+  defaultOffset: {fileID: 11400000, guid: 3a0e0f525f614e843a321b32b81d9eb0, type: 2}
 --- !u!114 &3461583488577500262
 MonoBehaviour:
   m_ObjectHideFlags: 0
