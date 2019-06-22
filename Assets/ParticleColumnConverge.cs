@@ -18,9 +18,6 @@ public class ParticleColumnConverge : MonoBehaviour
     {
         particles = new ParticleSystem.Particle[pSystem.main.maxParticles];
         startPositions = new Vector3[pSystem.main.maxParticles];
-
-        Vector3[] vArray = new Vector3[5];
-        Debug.Log("test");
     }
 
     // Update is called once per frame
@@ -40,7 +37,6 @@ public class ParticleColumnConverge : MonoBehaviour
             }
 
             vertCenter = new Vector3(0, particle.position.y, particle.position.z);
-            //particle.position = Vector3.Lerp(particle.position, vertCenter, (particle.startLifetime - particle.remainingLifetime) / particle.startLifetime);
             particle.position = Vector3.Lerp(startPositions[i], vertCenter, (particle.startLifetime - particle.remainingLifetime) / particle.startLifetime);
 
             particles[i] = particle;
