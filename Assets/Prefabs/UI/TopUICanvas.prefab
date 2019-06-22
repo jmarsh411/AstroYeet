@@ -1106,3 +1106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb93c9c225d625c418b92f72e53416d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  maxShields:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
