@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription: Player's hit points
   value: 5
-  oldValue: 0
+  oldValue: 4.999888
   Changed: {fileID: 0}
   ChangedWithHistory: {fileID: 0}
