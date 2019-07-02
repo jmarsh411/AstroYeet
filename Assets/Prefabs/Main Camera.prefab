@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 901883335}
   - component: {fileID: 368680277}
   - component: {fileID: 928478807985290397}
+  - component: {fileID: 9069114689551302577}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -185,6 +186,21 @@ MonoBehaviour:
   WarningPrefab: {fileID: 2426978475401514667, guid: deff6df666e131c40a3dff3baf81552a,
     type: 3}
   enemyShootEvent: {fileID: 11400000, guid: d445684a27c19f747a834c77e52e9ee5, type: 2}
+--- !u!114 &9069114689551302577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461583488577500258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee1575574360b747aaaeccf25efb417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LaserPrefab: {fileID: 1102822701399104, guid: 77f1c4fe9d64d1240a7528b20e791f73,
+    type: 3}
+  laserSpawnEvent: {fileID: 11400000, guid: a9ed2b6abe2f23641ab2f874bf74ec54, type: 2}
 --- !u!1001 &310828669682250004
 PrefabInstance:
   m_ObjectHideFlags: 0
