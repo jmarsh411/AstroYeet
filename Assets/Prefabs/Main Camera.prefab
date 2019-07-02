@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningPrefab: {fileID: 2426978475401514667, guid: deff6df666e131c40a3dff3baf81552a,
     type: 3}
-  enemyShootEvent: {fileID: 11400000, guid: d445684a27c19f747a834c77e52e9ee5, type: 2}
+  laserWarnEvent: {fileID: 11400000, guid: d445684a27c19f747a834c77e52e9ee5, type: 2}
 --- !u!114 &9069114689551302577
 MonoBehaviour:
   m_ObjectHideFlags: 0

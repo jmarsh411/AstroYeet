@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ad69af4252ab4415bc32abe1829ae8d, type: 3}
-  m_Name: EnemyShootEvent
+  m_Name: EnemyLaserWarnEvent
   m_EditorClassIdentifier: 

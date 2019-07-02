@@ -798,6 +798,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 928478807985290397, guid: c5f2b825c0347ef4ba32fd55a4745fcf,
+        type: 3}
+      propertyPath: laserWarnEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: d445684a27c19f747a834c77e52e9ee5,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5f2b825c0347ef4ba32fd55a4745fcf, type: 3}
 --- !u!1001 &4122876142192132879

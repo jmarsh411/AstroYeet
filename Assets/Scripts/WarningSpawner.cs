@@ -8,12 +8,12 @@ public class WarningSpawner : MonoBehaviour, IGameEventListener<Vector3>
     public GameObject WarningPrefab;
 
     [SerializeField]
-    private Vector3Event enemyShootEvent;
+    private Vector3Event laserWarnEvent;
     
     // Start is called before the first frame update
     void Start()
     {
-        enemyShootEvent.RegisterListener(this);
+        laserWarnEvent.RegisterListener(this);
     }
 
     public void OnEventRaised(Vector3 pos)
