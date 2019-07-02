@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2426978475401514664}
   - component: {fileID: 2426978475401514665}
   - component: {fileID: 2426978475401514666}
-  - component: {fileID: 2426978475401514663}
   - component: {fileID: 2426978475401514662}
   m_Layer: 0
   m_Name: WarningParticles
@@ -42,13 +41,13 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2426978475401514667}
   serializedVersion: 6
-  lengthInSec: 1.5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4700,19 +4699,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &2426978475401514663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2426978475401514667}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ecc06e6e7c895944b33ad39ed26cc62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetScale: {x: 0, y: 20, z: 0}
 --- !u!114 &2426978475401514662
 MonoBehaviour:
   m_ObjectHideFlags: 0
