@@ -4724,3 +4724,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80fa3ca18d4e24439d10437b777c35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserEvent: {fileID: 11400000, guid: a9ed2b6abe2f23641ab2f874bf74ec54, type: 2}
