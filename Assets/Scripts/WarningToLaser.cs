@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityAtoms;
 
-public class ParticleSysEOL : MonoBehaviour
+public class WarningToLaser : MonoBehaviour
 {
     public Vector3Event laserEvent;
     private ParticleSystem pSystem;
