@@ -6,16 +6,13 @@ public class Laser : MonoBehaviour
 {
     private GameObject player;
     private Ship ship;
+    private Collider2D laserCollider;
 
     private void Awake()
     {
         player = GameObject.FindWithTag("PlayerShip");
         ship = player.GetComponent<Ship>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
+        laserCollider = GetComponent<Collider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +20,7 @@ public class Laser : MonoBehaviour
         if (collision.gameObject == player)
         {
             ship.TakeHit(1);
-            Destroy(this.gameObject);
+            laserCollider.enabled = false;
         }
     }
 }

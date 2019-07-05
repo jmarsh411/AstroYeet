@@ -17,7 +17,7 @@ public class WarningToLaser : MonoBehaviour
     {
         if (!pSystem.IsAlive())
         {
-            laserEvent.Raise(transform.position);
+            laserEvent.Raise(transform.localPosition);
             Destroy(this.gameObject);
         }
     }
