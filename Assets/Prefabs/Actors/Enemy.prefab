@@ -67,5 +67,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LaserPrefab: {fileID: 1102822701399104, guid: 77f1c4fe9d64d1240a7528b20e791f73,
     type: 3}
-  enemyShootEvent: {fileID: 11400000, guid: d445684a27c19f747a834c77e52e9ee5, type: 2}
+  mainCamOffset:
+    UseConstant: 0
+    ConstantValue: {x: 0, y: 0, z: 0}
+    Variable: {fileID: 11400000, guid: ac27755be22e46b4bb7417ae218d1900, type: 2}
+  laserWarnEvent: {fileID: 11400000, guid: d445684a27c19f747a834c77e52e9ee5, type: 2}
   dist: 0

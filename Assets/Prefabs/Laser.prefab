@@ -156,9 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a60819692ea04f8bc51a518e68140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserWarningPrefab: {fileID: 3614338988652560609, guid: 8fb951440c700184ca09bc1f5442b9a0,
-    type: 3}
-  warnDist: 0
+  laserLifespan: {fileID: 11400000, guid: 3ea5026363dd06d4799d672fae11198d, type: 2}
 --- !u!82 &5103318647007461020
 AudioSource:
   m_ObjectHideFlags: 0

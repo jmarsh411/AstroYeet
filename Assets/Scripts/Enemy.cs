@@ -6,9 +6,11 @@ using UnityAtoms;
 public class Enemy : MonoBehaviour
 {
     public GameObject LaserPrefab;
+    public Vector3Reference mainCamOffset;
 
     [SerializeField]
-    private Vector3Event enemyShootEvent;
+    private Vector3Event laserWarnEvent;
+    
 
     private GameManager game;
     private GameObject player;
@@ -174,13 +176,13 @@ public class Enemy : MonoBehaviour
     {
         float spread = Mathf.Clamp(dist / 200, minAccSpread, maxAccSpread);
         //Vector3 spawnPos = new Vector3(Random.Range(-spread, spread), transform.position.y, 0);
-        Vector3 spawnPos = new Vector3(Random.Range(-spread, spread), 0, 0);
+        Vector3 spawnPos = new Vector3(Random.Range(-spread, spread), 0, -mainCamOffset.Value.z);
         ShootLaser(spawnPos);
     }
 
     public void ShootLaser(Vector3 position)
     {
-        enemyShootEvent.Raise(position);
+        laserWarnEvent.Raise(position);
     }
 
 }
