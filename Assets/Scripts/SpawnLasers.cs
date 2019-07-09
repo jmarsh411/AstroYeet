@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityAtoms;
 
 public class SpawnLasers : MonoBehaviour {
 
@@ -20,6 +21,9 @@ public class SpawnLasers : MonoBehaviour {
     private GameObject enemyShip;
     private Enemy enemy;
     private float playerOffset = -1.2f;
+
+    [SerializeField]
+    private Vector3Event warningEvent;
 
     void Awake()
     {
@@ -66,9 +70,10 @@ public class SpawnLasers : MonoBehaviour {
         float spread = Mathf.Clamp(enemy.dist / accFalloff, minAccSpread, maxAccSpread);
         Vector3 spawnPos = new Vector3(
             player.transform.position.x + Random.Range(-spread, spread),
-            player.transform.position.y + playerOffset,
-            0);
-        Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
+            0,
+            10);
+        warningEvent.Raise(spawnPos);
+        //Instantiate(LaserWarnPrefab, spawnPos, Quaternion.identity);
         // minimum of 1.5 seconds for 0 distance
         // want about 10 seconds for distance 400
         Invoke("SpawnWarning", (enemy.dist + 50) / 75);

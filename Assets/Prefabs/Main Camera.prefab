@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 368680277}
   - component: {fileID: 928478807985290397}
   - component: {fileID: 9069114689551302577}
+  - component: {fileID: 3461583488202230844}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -201,6 +202,24 @@ MonoBehaviour:
   LaserPrefab: {fileID: 1102822701399104, guid: 77f1c4fe9d64d1240a7528b20e791f73,
     type: 3}
   laserSpawnEvent: {fileID: 11400000, guid: a9ed2b6abe2f23641ab2f874bf74ec54, type: 2}
+--- !u!114 &3461583488202230844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461583488577500258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c9a66c32d04094e992421d0899b4f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LaserPrefab: {fileID: 0}
+  LaserWarnPrefab: {fileID: 0}
+  spawnPerSec: 1
+  spawnPadding: 1.5
+  spawnZone: {x: 0, y: 0, z: 0}
+  warningEvent: {fileID: 11400000, guid: d445684a27c19f747a834c77e52e9ee5, type: 2}
 --- !u!1001 &310828669682250004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,17 +444,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314034987100587915, guid: 70aac36c795b785499bc9545c27ea63e,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7314034987100587915, guid: 70aac36c795b785499bc9545c27ea63e,
-        type: 3}
-      propertyPath: camOffset
-      value: 
-      objectReference: {fileID: 11400000, guid: ac27755be22e46b4bb7417ae218d1900,
-        type: 2}
-    - target: {fileID: 7314034987100587915, guid: 70aac36c795b785499bc9545c27ea63e,
-        type: 3}
       propertyPath: mainCamOffset
       value: 
       objectReference: {fileID: 11400000, guid: ac27755be22e46b4bb7417ae218d1900,
@@ -515,17 +523,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6012809610388508360, guid: c7d3e9c3130bb444b8eb0ca3d30eff52,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6012809610388508360, guid: c7d3e9c3130bb444b8eb0ca3d30eff52,
-        type: 3}
-      propertyPath: camOffset
-      value: 
-      objectReference: {fileID: 11400000, guid: ac27755be22e46b4bb7417ae218d1900,
-        type: 2}
     - target: {fileID: 6012809610388508360, guid: c7d3e9c3130bb444b8eb0ca3d30eff52,
         type: 3}
       propertyPath: mainCamOffset
