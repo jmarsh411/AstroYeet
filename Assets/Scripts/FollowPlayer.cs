@@ -12,11 +12,11 @@ using UnityAtoms;
     private void Awake()
     {
         player = GameObject.FindWithTag("PlayerShip");
+        offset.Variable.Value = defaultOffset.Value;
     }
     // Start is called before the first frame update
     void Start()
     {
-        offset.Variable.Value = defaultOffset.Value;
     }
 
     // LateUpdate is called once per frame, after all other updates
