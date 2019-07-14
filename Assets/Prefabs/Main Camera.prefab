@@ -147,7 +147,7 @@ MonoBehaviour:
     type: 3}
   spawnPerSec: 1.5
   spawnPadding: 1.5
-  spawnZone: {x: 4.3, y: 20, z: 0}
+  spawnZone: {x: 4.3, y: 20, z: 11}
 --- !u!114 &901883335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,11 +285,6 @@ PrefabInstance:
     - target: {fileID: 3772409898541795306, guid: b66d710f58808704b9e3908a096c0b55,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3772409898541795307, guid: b66d710f58808704b9e3908a096c0b55,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
