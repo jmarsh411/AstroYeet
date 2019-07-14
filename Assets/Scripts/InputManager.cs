@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityAtoms;
 public class InputManager : MonoBehaviour
 {
     public GameObject playerShip;
@@ -12,6 +12,9 @@ public class InputManager : MonoBehaviour
     private float vertDeadzone = 0.1f;
     private float horizAxis = 0f;
     private float vertAxis = 0f;
+
+    [SerializeField]
+    private VoidEvent pauseEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,9 @@ public class InputManager : MonoBehaviour
             ship.SetVert(vertAxis);
         else
             ship.SetVert(0);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            pauseEvent.Raise();
     }
 
 }
