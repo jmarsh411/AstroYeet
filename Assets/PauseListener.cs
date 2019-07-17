@@ -6,7 +6,7 @@ using UnityAtoms;
 public class PauseListener : MonoBehaviour, IGameEventListener<Void>
 {
 
-    public GameObject PauseCanvas;
+    public GameObject PausePanel;
     [SerializeField]
     private VoidEvent pauseEvent;
 
@@ -29,13 +29,13 @@ public class PauseListener : MonoBehaviour, IGameEventListener<Void>
         {
             Time.timeScale = 1;
             paused = false;
-            PauseCanvas.SetActive(false);
+            PausePanel.SetActive(false);
         }
         else
         {
             Time.timeScale = 0;
             paused = true;
-            PauseCanvas.SetActive(true);
+            PausePanel.SetActive(true);
         }
     }
 
