@@ -56,8 +56,8 @@ public class Ship : MonoBehaviour
         //transform.position = new Vector3(0, GameManager.playerHeadStart, 0);
         shield.Variable.Value = maxShields.Value;
         invulnerable = false;
-        // recover 1 shield every 60 seconds (FixedUpdate procs every 1/50 seconds)
-        shieldRegen = 1f / (50 * 60);
+        // recover 2 shield every 60 seconds (FixedUpdate procs every 1/50 seconds)
+        shieldRegen = 2f / (50 * 60);
         thrust = new Vector2(0, 20f);
         horizAxis = 0f;
         historyInterval = 1f;
