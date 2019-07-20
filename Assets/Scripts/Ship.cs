@@ -134,7 +134,7 @@ public class Ship : MonoBehaviour
 
     public void Accel()
     {
-        rBody.AddForce(thrust * 3);
+        rBody.AddForce(thrust * 2.8f);
     }
 
     public void Decel()
