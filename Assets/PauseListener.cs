@@ -15,6 +15,7 @@ public class PauseListener : MonoBehaviour, IGameEventListener<Void>
     void Awake()
     {
         paused = false;
+        Time.timeScale = 1;
     }
 
     // Start is called before the first frame update
