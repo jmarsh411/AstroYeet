@@ -16,6 +16,11 @@ public class LaserSpawner : MonoBehaviour, IGameEventListener<Vector3>
         laserSpawnEvent.RegisterListener(this);
     }
 
+    void OnDisable()
+    {
+        laserSpawnEvent.UnregisterListener(this);
+    }
+
     public void OnEventRaised(Vector3 pos)
     {
         //Debug.Log("Laser Spawned: " + pos);
