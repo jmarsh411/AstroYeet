@@ -6,12 +6,8 @@ public class InputManager : MonoBehaviour
 {
     public GameObject playerShip;
     private Ship ship;
-    private Vector3 move;
-    // deadzone to pad against broken/miscalibrated controllers
-    private float horizDeadzone = 0.1f;
-    private float vertDeadzone = 0.1f;
-    private float horizAxis = 0f;
-    private float vertAxis = 0f;
+    private float horizAxis;
+    private float vertAxis;
 
     [SerializeField]
     private VoidEvent pauseEvent;
@@ -27,17 +23,11 @@ public class InputManager : MonoBehaviour
     {
         // send the horizontal axis to player ship for movement purposes
         horizAxis = Input.GetAxis("Horizontal");
-        if (Mathf.Abs(horizAxis) > horizDeadzone)
-            ship.SetHoriz(horizAxis);
-        else
-            ship.SetHoriz(0);
+        ship.SetHoriz(horizAxis);
 
         // send the vertical axis to player ship
         vertAxis = Input.GetAxis("Vertical");
-        if (Mathf.Abs(vertAxis) > vertDeadzone)
-            ship.SetVert(vertAxis);
-        else
-            ship.SetVert(0);
+        ship.SetVert(vertAxis);
 
         if (Input.GetButtonDown("Pause"))
             pauseEvent.Raise();
