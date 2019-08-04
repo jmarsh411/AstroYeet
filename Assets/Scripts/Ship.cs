@@ -86,13 +86,12 @@ public class Ship : MonoBehaviour
         rBody.AddForce(thrust);
         transform.position = new Vector3(tempx, temp.y, temp.z);
 
-        if (Input.GetAxis("BoostJoy") > 0 || Input.GetAxis("BoostKey") > 0)
+        if (Input.GetAxis("Boost") > 0)
         {
             Accel();
         }
 
-        if (Input.GetAxis("BrakeJoy") > 0 || Input.GetAxis("BrakeKey") > 0)
-        //if (Input.GetAxis("BrakeKey") > 0)
+        if (Input.GetAxis("Brake") > 0)
         {
             Decel();
         }

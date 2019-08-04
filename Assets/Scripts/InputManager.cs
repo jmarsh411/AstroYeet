@@ -39,7 +39,7 @@ public class InputManager : MonoBehaviour
         else
             ship.SetVert(0);
 
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7))
+        if (Input.GetButtonDown("Pause"))
             pauseEvent.Raise();
     }
 
