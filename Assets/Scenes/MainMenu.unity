@@ -461,7 +461,7 @@ MonoBehaviour:
 
     Hold Right Trigger / Space = Faster
 
-    Hold Left Trigger / Left CTRL = Slower'
+    Hold Left Trigger / CTRL = Slower'
 --- !u!222 &700697524
 CanvasRenderer:
   m_ObjectHideFlags: 0
