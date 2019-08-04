@@ -165,63 +165,6 @@ public class Ship : MonoBehaviour
         shieldSprite.enabled = false;
     }
 
-    //public void Boost()
-    //{
-    //    // Horizontal boost takes priority if axis are equal
-    //    if (horizAxis != 0 && Mathf.Abs(horizAxis) >= Mathf.Abs(vertAxis))
-    //    {
-    //        BoostHoriz();
-    //    }
-    //    else
-    //    {
-    //        if (vertAxis < 0)
-    //            BoostBack();
-    //        else
-    //            BoostForw();
-    //    }
-
-    //    boosting = true;
-    //    Invoke("StopBoost", boostLen);
-    //}
-
-    //IEnumerator SetThrust(float thrust, float duration)
-    //{
-    //    addThrust = thrust;
-    //    yield return new WaitForSeconds(duration);
-    //    addThrust = 0;
-    //}
-
-    //private void BoostForw()
-    //{
-    //    //speed += boostVertStr;
-    //    //addThrust += 0.2f;
-    //    StartCoroutine(SetThrust(boostVertStr, boostLen * 2));
-    //}
-
-    //private void BoostBack()
-    //{
-    //    //addThrust -= 0.2f;
-    //    //speed -= boostVertStr;
-    //    StartCoroutine(SetThrust(-boostVertStr * 0.2f, boostLen));
-
-    //}
-
-    //private void BoostHoriz()
-    //{
-    //    horizSpeed = defHorizSpeed * boostHorizSpeedMult;
-    //}
-
-    //public void StopBoost()
-    //{
-    //    horizSpeed = defHorizSpeed;
-    //    boosting = false;
-    //}
-
-    //public bool IsBoosting()
-    //{
-    //    return boosting;
-    //}
-
     public void SetHoriz(float axis)
     {
         horizAxis = axis;
