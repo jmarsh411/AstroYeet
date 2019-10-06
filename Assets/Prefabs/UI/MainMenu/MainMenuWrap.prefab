@@ -374,6 +374,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3837307360969488401, guid: f0fa634c78cb60947be496603c9ca7df,
+        type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 4272022874408181171}
     - target: {fileID: 2300406863800906391, guid: f0fa634c78cb60947be496603c9ca7df,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -399,6 +404,12 @@ PrefabInstance:
 --- !u!224 &717176185589920815 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5332431498897108894, guid: f0fa634c78cb60947be496603c9ca7df,
+    type: 3}
+  m_PrefabInstance: {fileID: 4896382301269220273}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4272022874408181171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8699327105342113282, guid: f0fa634c78cb60947be496603c9ca7df,
     type: 3}
   m_PrefabInstance: {fileID: 4896382301269220273}
   m_PrefabAsset: {fileID: 0}
